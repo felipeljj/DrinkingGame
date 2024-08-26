@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx2rcwl2bw1jj"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_i02xn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pmahl"]
+font_size = 68
+
+[sub_resource type="Theme" id="Theme_jb5gn"]
+default_font_size = 52
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("1_i02xn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0253638, 0.0253638, 0.0253638, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -316.0
+offset_top = 360.0
+offset_right = 376.0
+offset_bottom = 453.0
+grow_horizontal = 2
+text = "The Drinking Game"
+label_settings = SubResource("LabelSettings_pmahl")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 1496.0
+offset_right = 731.0
+offset_bottom = 1632.0
+theme = SubResource("Theme_jb5gn")
+text = "JOGAR"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
