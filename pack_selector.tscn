@@ -56,13 +56,12 @@ size_flags_stretch_ratio = 0.0
 mouse_filter = 0
 theme_override_constants/separation = 30
 
-[node name="Panel" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
-z_as_relative = false
+[node name="Classic" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/ScrollContainer/HBoxContainer/Panel"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/ScrollContainer/HBoxContainer/Classic"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,7 +69,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Panel"]
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Classic"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -82,12 +81,22 @@ grow_horizontal = 2
 text = "Clássico"
 label_settings = SubResource("LabelSettings_hr2lx")
 
-[node name="Panel2" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
+[node name="classic" type="Button" parent="MarginContainer/ScrollContainer/HBoxContainer/Classic"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+
+[node name="NonSense" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/ScrollContainer/HBoxContainer/Panel2"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/ScrollContainer/HBoxContainer/NonSense"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -96,7 +105,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.730986, 0.553673, 0.987774, 1)
 
-[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Panel2"]
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/NonSense"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -108,12 +117,22 @@ grow_horizontal = 2
 text = "Non-Sense"
 label_settings = SubResource("LabelSettings_hr2lx")
 
-[node name="Panel3" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
+[node name="nonsense" type="Button" parent="MarginContainer/ScrollContainer/HBoxContainer/NonSense"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+
+[node name="Cuzinho" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/ScrollContainer/HBoxContainer/Panel3"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/ScrollContainer/HBoxContainer/Cuzinho"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -122,7 +141,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(3.46541e-06, 0.770203, 0.84988, 1)
 
-[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Panel3"]
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Cuzinho"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -133,6 +152,16 @@ offset_bottom = 67.0
 grow_horizontal = 2
 text = "Cuzinho"
 label_settings = SubResource("LabelSettings_hr2lx")
+
+[node name="cuzinho" type="Button" parent="MarginContainer/ScrollContainer/HBoxContainer/Cuzinho"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -161,3 +190,8 @@ position = Vector2(1042, 962)
 rotation = -4.71239
 scale = Vector2(0.15578, 0.16871)
 texture = ExtResource("1_frdqn")
+
+[connection signal="gui_input" from="MarginContainer/ScrollContainer/HBoxContainer/Classic" to="." method="_on_classic_gui_input"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/Classic/classic" to="." method="_on_classic_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/NonSense/nonsense" to="." method="_on_nonsense_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/Cuzinho/cuzinho" to="." method="_on_cuzinho_pressed"]
