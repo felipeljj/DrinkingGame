@@ -1,0 +1,92 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctbk8igsv8msh"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_d7go2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pmahl"]
+font_size = 68
+
+[node name="Main" type="Node"]
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("1_d7go2")
+
+[node name="ColorRect" type="ColorRect" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0253638, 0.0253638, 0.0253638, 1)
+
+[node name="Label" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -336.0
+offset_top = 390.0
+offset_right = 356.0
+offset_bottom = 483.0
+grow_horizontal = 2
+text = "The Drinking Game"
+label_settings = SubResource("LabelSettings_pmahl")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Menu"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 630.0
+offset_right = 1032.0
+offset_bottom = 1365.0
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Classic" type="Control" parent="Menu/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/ScrollContainer/HBoxContainer/Classic"]
+layout_mode = 2
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 66.0
+offset_bottom = 27.0
+text = "Classico"
+
+[node name="Button" type="Button" parent="Menu/ScrollContainer/HBoxContainer/Classic"]
+layout_mode = 2
+offset_left = 1.0
+offset_top = 28.0
+offset_right = 75.0
+offset_bottom = 59.0
+text = "Escolher"
+
+[node name="Profissional" type="Control" parent="Menu/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/ScrollContainer/HBoxContainer/Profissional"]
+offset_left = -53.0
+offset_top = -626.0
+offset_right = 9.0
+offset_bottom = -603.0
+text = "Pro"
+
+[node name="Button" type="Button" parent="Menu/ScrollContainer/HBoxContainer/Profissional"]
+offset_left = -56.0
+offset_top = -602.0
+offset_right = 18.0
+offset_bottom = -571.0
+text = "Escolher"
