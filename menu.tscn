@@ -11,7 +11,7 @@ font_size = 68
 default_font_size = 52
 
 [sub_resource type="LabelSettings" id="LabelSettings_t0be4"]
-font_size = 32
+font_size = 22
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -51,6 +51,7 @@ uppercase = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(554, 252)
+rotation = 0.23911
 scale = Vector2(0.30957, 0.30957)
 texture = ExtResource("3_fgs2j")
 
@@ -83,7 +84,18 @@ text = "Como jogar"
 [node name="madeby" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 5
-text = "proudly made by Felipe Latchuk"
+text = "proudly made by Felipe Latchuk <3"
+label_settings = SubResource("LabelSettings_t0be4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="madeby" type="Label" parent="."]
+offset_left = 380.0
+offset_top = 466.0
+offset_right = 744.0
+offset_bottom = 515.0
+theme_override_font_sizes/font_size = 5
+text = "v.0.0.1"
 label_settings = SubResource("LabelSettings_t0be4")
 horizontal_alignment = 1
 vertical_alignment = 1
