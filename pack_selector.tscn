@@ -1,12 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr1tvowqan2jm"]
+[gd_scene load_steps=9 format=3 uid="uid://dr1tvowqan2jm"]
 
 [ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Theme.tres" id="1_77pkn"]
 [ext_resource type="Script" path="res://pack_selector.gd" id="1_d25p4"]
 [ext_resource type="Texture2D" uid="uid://ccjp2ip5ddvli" path="res://arrow-up-01-512.webp" id="1_frdqn"]
+[ext_resource type="StyleBox" uid="uid://c3pnx47o2er20" path="res://PackSelector.tres" id="3_sbd8e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hr2lx"]
 font_size = 48
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2kww"]
+bg_color = Color(1, 0.392157, 0.623529, 1)
+corner_radius_top_left = 95
+corner_radius_top_right = 95
+corner_radius_bottom_right = 95
+corner_radius_bottom_left = 95
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g44m2"]
+bg_color = Color(0.351328, 0.945635, 0.858147, 1)
+corner_radius_top_left = 95
+corner_radius_top_right = 95
+corner_radius_bottom_right = 95
+corner_radius_bottom_left = 95
+corner_detail = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_gew27"]
 font_size = 120
@@ -28,7 +45,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0253638, 0.0253638, 0.0253638, 1)
+color = Color(0.0475574, 0.0475577, 0.0475577, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -63,14 +80,7 @@ theme_override_constants/separation = 30
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/ScrollContainer/HBoxContainer/Classic"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_sbd8e")
 
 [node name="Label" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Classic"]
 layout_mode = 1
@@ -83,6 +93,8 @@ offset_bottom = 67.0
 grow_horizontal = 2
 text = "Clássico"
 label_settings = SubResource("LabelSettings_hr2lx")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="classic" type="Button" parent="MarginContainer/ScrollContainer/HBoxContainer/Classic"]
 show_behind_parent = true
@@ -93,20 +105,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+flat = true
 
 [node name="NonSense" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/ScrollContainer/HBoxContainer/NonSense"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.730986, 0.553673, 0.987774, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_t2kww")
 
 [node name="Label" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/NonSense"]
 layout_mode = 1
@@ -129,22 +134,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+flat = true
 
-[node name="Cuzinho" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
+[node name="Weirdo" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_g44m2")
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/ScrollContainer/HBoxContainer/Cuzinho"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(3.46541e-06, 0.770203, 0.84988, 1)
-
-[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Cuzinho"]
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Weirdo"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -153,10 +151,10 @@ offset_left = -92.5
 offset_right = 92.5
 offset_bottom = 67.0
 grow_horizontal = 2
-text = "Cuzinho"
+text = "Weirdo"
 label_settings = SubResource("LabelSettings_hr2lx")
 
-[node name="cuzinho" type="Button" parent="MarginContainer/ScrollContainer/HBoxContainer/Cuzinho"]
+[node name="weirdo" type="Button" parent="MarginContainer/ScrollContainer/HBoxContainer/Weirdo"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -165,6 +163,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+flat = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -177,7 +176,7 @@ offset_top = 219.0
 offset_right = 360.0
 offset_bottom = 374.96
 grow_horizontal = 2
-text = "Seletor de Packs"
+text = "Selecione seus packs"
 label_settings = SubResource("LabelSettings_gew27")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -189,7 +188,7 @@ scale = Vector2(0.143648, 0.153491)
 texture = ExtResource("1_frdqn")
 
 [node name="Arrow-up-01-513" type="Sprite2D" parent="."]
-position = Vector2(1042, 962)
+position = Vector2(1039, 951)
 rotation = -4.71239
 scale = Vector2(0.15578, 0.16871)
 texture = ExtResource("1_frdqn")
@@ -197,4 +196,4 @@ texture = ExtResource("1_frdqn")
 [connection signal="gui_input" from="MarginContainer/ScrollContainer/HBoxContainer/Classic" to="." method="_on_classic_gui_input"]
 [connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/Classic/classic" to="." method="_on_classic_pressed"]
 [connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/NonSense/nonsense" to="." method="_on_nonsense_pressed"]
-[connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/Cuzinho/cuzinho" to="." method="_on_cuzinho_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/Weirdo/weirdo" to="." method="_on_weirdo_pressed"]
