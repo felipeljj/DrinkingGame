@@ -1,15 +1,15 @@
 extends Control
 
 var pack_state = {
-	"Classico": true,
-	"Non-Sense": false,
-	"Cuzinho": false
+	"classico": true,
+	"nonsense": false,
+	"cuzinho": false
 }
 
 @onready var pack_panels = {
-	"Classico": $MarginContainer/ScrollContainer/HBoxContainer/Panel,
-	"Non-Sense": $MarginContainer/ScrollContainer/HBoxContainer/Panel2,
-	"Cuzinho": $MarginContainer/ScrollContainer/HBoxContainer/Panel3,
+	"classico": $MarginContainer/ScrollContainer/HBoxContainer/Classic,
+	"nonsense": $MarginContainer/ScrollContainer/HBoxContainer/NonSense,
+	"cuzinho": $MarginContainer/ScrollContainer/HBoxContainer/Cuzinho,
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -26,18 +26,18 @@ func update_pack_visual(pack_name):
 func _on_pack_panel_pressed(pack_name):
 	pack_state[pack_name] = !pack_state[pack_name]
 	update_pack_visual(pack_name)
-	
-func _on_ClassicPack_gui_input(event):
-	if event is InputEventMouseButton and event.pressed:
-		print("Panel clicked!")
-	_on_pack_panel_pressed("Classico")
-	
-func _on_NonSensePack_gui_input(event):
-	if event is InputEventMouseButton and event.pressed:
-		print("Panel clicked!")
-	_on_pack_panel_pressed("Non-Sense")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _on_classic_pressed() -> void:
+	_on_pack_panel_pressed("classico")
+	
+func _on_nonsense_pressed() -> void:
+	_on_pack_panel_pressed("nonsense")
+	
+func _on_cuzinho_pressed() -> void:
+	_on_pack_panel_pressed("cuzinho")
+	
+
+
 func _process(delta: float) -> void:
 	pass
