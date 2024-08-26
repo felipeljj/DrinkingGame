@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dr1tvowqan2jm"]
+[gd_scene load_steps=6 format=3 uid="uid://dr1tvowqan2jm"]
 
+[ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Theme.tres" id="1_77pkn"]
 [ext_resource type="Script" path="res://pack_selector.gd" id="1_d25p4"]
 [ext_resource type="Texture2D" uid="uid://ccjp2ip5ddvli" path="res://arrow-up-01-512.webp" id="1_frdqn"]
 
@@ -17,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_77pkn")
 script = ExtResource("1_d25p4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -41,6 +43,7 @@ offset_bottom = 227.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
+theme = ExtResource("1_77pkn")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -169,10 +172,10 @@ anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.012
-offset_left = -63.0
-offset_top = 227.0
-offset_right = 64.0
-offset_bottom = 226.96
+offset_left = -359.0
+offset_top = 219.0
+offset_right = 360.0
+offset_bottom = 374.96
 grow_horizontal = 2
 text = "Seletor de Packs"
 label_settings = SubResource("LabelSettings_gew27")
