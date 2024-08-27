@@ -122,6 +122,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+mouse_filter = 2
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/ScrollContainer/HBoxContainer/Classic"]
@@ -173,6 +174,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+mouse_filter = 2
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/ScrollContainer/HBoxContainer/NonSense"]
@@ -225,6 +227,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+mouse_filter = 2
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/ScrollContainer/HBoxContainer/Weirdo"]
@@ -277,6 +280,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+mouse_filter = 2
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/ScrollContainer/HBoxContainer/Languages"]
