@@ -4,13 +4,15 @@ var pack_state = {
 	"classico": true,
 	"nonsense": false,
 	"weirdo": false,
-	"languages": false
+	"languages": false,
+	"pool": false,
 }
 @onready var pack_panels = {
 	"classico": $MarginContainer/ScrollContainer/HBoxContainer/Classic,
 	"nonsense": $MarginContainer/ScrollContainer/HBoxContainer/NonSense,
 	"weirdo": $MarginContainer/ScrollContainer/HBoxContainer/Weirdo,
-	"languages": $MarginContainer/ScrollContainer/HBoxContainer/Languages
+	"languages": $MarginContainer/ScrollContainer/HBoxContainer/Languages,
+	"pool": $MarginContainer/ScrollContainer/HBoxContainer/Pool
 }
 func _ready():
 	for pack_name in pack_state.keys():
@@ -35,6 +37,9 @@ func _on_weirdo_pressed() -> void:
 	_on_pack_panel_pressed("weirdo")
 
 func _on_languages_pressed() -> void:
+	_on_pack_panel_pressed("languages")
+	
+func _on_pool_pressed() -> void:
 	_on_pack_panel_pressed("languages")
 
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dr1tvowqan2jm"]
+[gd_scene load_steps=18 format=3 uid="uid://dr1tvowqan2jm"]
 
 [ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Theme.tres" id="1_77pkn"]
 [ext_resource type="Script" path="res://pack_selector.gd" id="1_d25p4"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dk6cc5uqatjeg" path="res://Weirdo.png" id="6_al8b3"]
 [ext_resource type="Texture2D" uid="uid://cc3m31lce8t8h" path="res://languageIcon.png" id="7_hsnaw"]
 [ext_resource type="Texture2D" uid="uid://bldkpv6f0caiw" path="res://arrow.png" id="8_1qa0v"]
+[ext_resource type="Texture2D" uid="uid://cg0faginnpxlv" path="res://votingIcon.png" id="8_chd8h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hr2lx"]
 font_size = 48
@@ -35,6 +36,14 @@ corner_detail = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3qjr"]
 bg_color = Color(0.988543, 0.667147, 0.411141, 1)
+corner_radius_top_left = 95
+corner_radius_top_right = 95
+corner_radius_bottom_right = 95
+corner_radius_bottom_left = 95
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_neoaw"]
+bg_color = Color(0.687895, 0.213926, 0.901093, 1)
 corner_radius_top_left = 95
 corner_radius_top_right = 95
 corner_radius_bottom_right = 95
@@ -74,7 +83,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 79.0
 offset_top = -248.0
-offset_right = -51.0
+offset_right = 1379.0
 offset_bottom = 227.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -308,6 +317,59 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="Pool" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_neoaw")
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Pool"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.5
+offset_right = 92.5
+offset_bottom = 67.0
+grow_horizontal = 2
+text = "Votação"
+label_settings = SubResource("LabelSettings_hr2lx")
+horizontal_alignment = 1
+
+[node name="pool" type="Button" parent="MarginContainer/ScrollContainer/HBoxContainer/Pool"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_filter = 1
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/ScrollContainer/HBoxContainer/Pool"]
+position = Vector2(225, 285)
+scale = Vector2(0.25875, 0.25875)
+texture = ExtResource("8_chd8h")
+
+[node name="description" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Pool"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -209.0
+offset_top = 72.0
+offset_right = 213.0
+offset_bottom = 145.0
+grow_horizontal = 2
+text = "Quem do grupo é mais isso? Quem faz mais aquilo? O mais votado, bebe :)"
+label_settings = SubResource("LabelSettings_cgleg")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -379,5 +441,6 @@ texture = ExtResource("8_1qa0v")
 [connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/NonSense/nonsense" to="." method="_on_nonsense_pressed"]
 [connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/Weirdo/weirdo" to="." method="_on_weirdo_pressed"]
 [connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/Languages/languages" to="." method="_on_languages_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/Pool/pool" to="." method="_on_pool_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Começar" to="." method="_on_começar_pressed"]

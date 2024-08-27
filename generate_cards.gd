@@ -6,20 +6,48 @@ var card_data = {
 	"classico": [
 		"Todos os homens bebem nesta rodada.",
 		"Todas as mulheres bebem nesta rodada",
+		"Todos os Não-binarios bebem nesta rodada",
 		"Todos os solteiros bebem.",
-		"O maior da roda, bebe.",
-		"O menor da roda, bebe.",
+		"Todos que namoram bebem",
+		"O mais alto da roda, bebe.",
+		"O mais baixo da roda, bebe.",
 		"Você tem imunidade no restante dessa rodada. Cada vez que você tiver que beber, deve escolher outra pessoa da roda para beber em seu lugar.",
 		"[NAO LEIA EM VOZ ALTA] Peça para cada membro da roda falar um número. Quem escolher um numero par, bebe. Quem escolher um número impar, você decide a punição (use a imaginação rs)",
 		"Todo mundo com idade impar, bebe.",
-		"Todo mundo com idade par, bebe"
+		"Todo mundo com idade par, bebe",
+		"O ultimo jogador a encostar na parede, bebe",
+		"O ultimo a pegar o celular, bebe",
+		"Todos os heterossexuais bebem",
+		"Todos os LGTQIA+ bebem",
+		"É hora de animar o jogo! Todos bebem",
+		"Conte uma piada. Se a roda rir, eles bebem. Se não, você bebe",
+		"Todos os fumantes, bebem.",
+		"Todos os virgens, bebem.",
+		"Todos que mentiram alguma vez nesse jogo, bebem",
+		"Faça 10 flexões. Beba para cada flexão não feita.",
+		"Faça uma pergunta no ouvido do jogador à sua direita sobre alguém da roda. A pessoa deve responder em voz alta, mas sem revelar a pergunta. Bebe quem quiser saber a pergunta.",
+		"Conte uma verdade e uma mentira. Quem quiser descobrir, deve beber.",
+		"Escolha um jogador para beber junto com você até o final do jogo.",
+		"Livramento: utilize essa carta para se livrar de qualquer punição do jogo. Só pode ser utilizada 1 vez.",
+		"Fique em silêncio absoluto até o final da rodada. Se alguém falar com você, essa pessoa bebe.",
+		"Todos na roda devem substituir alguma palavra de um filme por 'cu' e dizer em voz alta. Se alguém rir em alguma, todos bebem. A rodada continua até alguém rir."
+		
 	],
 	"nonsense": [
 		"Imite uma girafa servindo chá. Você tem 30 segundos para convencer a roda que não deve beber. A roda decide.",
 		"A partir de agora, você só deve falar as palavras de forma invertida. Por exemplo: Oi, vira iO. Se errar, bebe.",
 		"Fique uma rodada inteira encarando o jogador à sua direita sem rir. Se der risada, bebe.",
 		"A partir de agora, você só pode usar o banheiro de luz apagada.",
-		"Faça uma dança sensual para a roda ao som de Evidencias do chitãozinho e xororó"
+		"Faça uma dança sensual para a roda ao som de Evidencias do chitãozinho e xororó",
+		"Ande em câmera lenta até a porta e volte. Se alguém rir, essa pessoa bebe.",
+		"Você está submerso de baixo da água. Fale e atue como tal. Se esquecer, bebe.",
+		"Imite o som de um telefone antigo até alguém na roda fingir atender. Se ninguém atender, beba.",
+		"Convide um amigo imaginário para jogar. Explique as regras para ele em 30 segundos. Você e ele bebem",
+		"Fale em rimas até o final da rodada. Se esquecer, beba.",
+		"Cante uma música pop conhecida, mas só pode usar a palavra 'meow'.",
+		"Invente um poder, e revele-o e demonstre para a roda. A roda deve decidir se você bebe ou não",
+		"Invente algo maluco e faça todos da roda fazerem. Quem nao fazer, bebe",
+		"[NÃO DEIXE OS OUTROS LER] Fale em voz alta 'GENTE! EU DUVIDO!', e fique em silencio encarando todos. Se algúem da roda dizer 'meu pau no seu ouvido', todos bebem"
 	],
 	"weirdo": [
 		"Fique 3 rodadas com seu mindinho dentro do nariz.",
@@ -28,14 +56,47 @@ var card_data = {
 		"Encoste seu nariz no cotovelo. Se conseguir, todos bebem. Ao contrário, você bebe.",
 		"Chupe o dedão do seu pé. Ou beba 3 copos",
 		"Coloque os dois dedos no ouvido, engula o cuspe, e fale 'ui que gostoso'",
-		"Beba um copo de cabeça pra baixo. (faça isso fora da casa kkk)"
+		"Beba um copo de cabeça pra baixo. (faça isso fora da casa kkk)",
+		"Seja um professor de yoga para um grupo de sapos imaginários e mostre a postura que eles devem fazer. Ou beba.",
+		"Use um chapéu feito de papel alumínio e finja que está protegendo sua mente de invasões alienígenas. Ou beba.",
+		"Faça um discurso sobre por que você deve ser eleito o 'Rei/Rainha das Baratas' e quais são suas promessas. Faça uma votação para descobrir quem na roda te elegeria. Se você perder, você bebe.",
+		"Crie uma nova língua e fale um parágrafo nela para a roda. Peça para adivinharem o significado. Se a roda advinhar, você bebe. Caso contrário, todos menos você bebem.",
+		"Fique sentado como se fosse uma estátua e, de vez em quando, faça movimentos inesperados. Se alguem se assustar, essa pessoa bebe. Caso contrario, você bebe. Valido a qualquer momento do jogo",
+		"Sem explicar nada para ninguém, levante e sente-se virado(a) para a parede. Fique assim por 2 rodadas sem interagir com ninguem. Se alguém te chamar de maluco(a), você bebe. Se ninguem falar nada, a roda bebe. Nao deixe ninguem ler essa carta.",
+		
+		
 	],
 	"languages": [
 		"Cante uma música em chinês. Todos bebem e cantam juntos",
 		"Recite um poema em russo. A roda vai avaliar se você deve beber ou não.",
 		"A roda deve escolher um idioma para você. Você deve falar nesse idioma até o final da rodada. Se esquecer, bebe.",
 		"Você tem o direito de mudar uma palavra do português. Substitua uma palavra de sua escolha, pelo que quiser. Todos devem falar corretamente após a mudança. Quem se esquecer, bebe",
-		"Diga uma frase em outro idioma no ouvido do jogador à sua esquerda. Ele deve repetir para o próximo jogador, até chegar em você novamente. Se a palavra for diferente, todos bebem."
+		"Diga uma frase em outro idioma no ouvido do jogador à sua esquerda. Ele deve repetir para o próximo jogador, até chegar em você novamente. Se a palavra for diferente, todos bebem.",
+		"Recite o alfabeto ao contrário, mas com sotaque estrangeiro. Se errar, beba.",
+		"Apenas use palavras que começam com a letra 'S' até o próximo turno. Se errar, beba.",
+		"Diga um trava-línguas em um idioma estrangeiro. Se não conseguir, beba.",
+		"Fale um discurso de um minuto em uma língua inventada. Se alguém entender, todos bebem.",
+		"Traduza uma frase engraçada do português para outro idioma e diga aos outros para traduzirem de volta. Se não for igual, beba.",
+		"Leia uma receita em um idioma estrangeiro e peça para os outros adivinharem os ingredientes principais. Se alguem acertar, todos bebem",
+		"Todos na roda devem falar apenas no singular. Se alguem falar qualquer plural, todos bebem."
+	],
+	"pool": [
+		"Quem é mais provável de cometer um crime? O mais votado bebe",
+		"Quem é mais provável de trair o namorado(a)? O mais votado bebe",
+		"Quem é mais provável de ser um psicopata oculto? O mais votado bebe",
+		"Quem é mais provável de entrar numa briga? O mais votado bebe",
+		"Quem é mais provável de bater o carro? O mais votado bebe",
+		"Quem é mais provável de ter um filho logo? O mais votado bebe",
+		"Quem é mais provável de casar primeiro? O mais votado bebe",
+		"Quem é mais pão duro? O mais votado bebe",
+		"Quem é mais coração mole? O mais votado bebe",
+		"Quem é mais pé no chão? O mais votado escolhe quem bebe.",
+		"Quem é mais influenciavel? O mais votado bebe",
+		"Quem é mais vagabundo(a)? O mais votado bebe",
+		"Se vocês tivessem que eliminar alguem da roda, por sobrevivencia. Quem deixariam pra trás? O mais votado bebe (é o jeito ne..)",
+		"Se você tivesse que viver o resto da vida com alguem da roda. Com quem você viveria? O mais votado bebe. Se empatar, todos bebem."
+		
+		
 	]
 }
 
@@ -98,11 +159,13 @@ func update_card_visual(category):
 			"classico":
 				card_panel.modulate = Color(1, 1, 1)  # Branco
 			"nonsense":
-				card_panel.modulate = Color(1, 0.392, 0.624, 1)  # Roxo
+				card_panel.modulate = Color(1, 0.392, 0.624, 1)  # Rosa
 			"weirdo":
 				card_panel.modulate = Color(0.351, 0.946, 0.858, 1)  # Verde
 			"languages":
 				card_panel.modulate = Color(0.989, 0.667, 0.411, 1)  # Laranja
+			"pool":
+				card_panel.modulate = Color(0.688, 0.214, 0.901, 1) # Roxo
 
 func remove_card_panel():
 	if card_panel:
