@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://dr1tvowqan2jm"]
+[gd_scene load_steps=14 format=3 uid="uid://dr1tvowqan2jm"]
 
 [ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Theme.tres" id="1_77pkn"]
 [ext_resource type="Script" path="res://pack_selector.gd" id="1_d25p4"]
-[ext_resource type="Script" path="res://scroll_container.gd" id="3_4bht2"]
 [ext_resource type="StyleBox" uid="uid://c3pnx47o2er20" path="res://PackSelector.tres" id="3_sbd8e"]
 [ext_resource type="Texture2D" uid="uid://c0b1rd1u65qd2" path="res://classicLogo.png" id="4_mdt40"]
 [ext_resource type="Texture2D" uid="uid://dfkse45bexk18" path="res://Animals.png" id="5_r02ch"]
@@ -81,10 +80,9 @@ theme = ExtResource("1_77pkn")
 layout_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 2
-follow_focus = true
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 0
-script = ExtResource("3_4bht2")
+scroll_deadzone = 500
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer"]
 layout_mode = 2
