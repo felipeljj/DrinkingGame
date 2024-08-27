@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxbv0pjrw5m0i"]
+[gd_scene load_steps=10 format=3 uid="uid://bxbv0pjrw5m0i"]
 
 [ext_resource type="Script" path="res://generate_cards.gd" id="1_10yab"]
 [ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Theme.tres" id="1_fm4ds"]
@@ -6,6 +6,10 @@
 [ext_resource type="FontFile" uid="uid://uif4mjsdqker" path="res://Oswald-VariableFont_wght.ttf" id="4_u3d5b"]
 [ext_resource type="Texture2D" uid="uid://bq5504pqi6eqx" path="res://drinkingdeck.png" id="5_jjeac"]
 [ext_resource type="Texture2D" uid="uid://xrymm8t70ft3" path="res://Drink'sDeckSmall.png" id="6_2eo1j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kj67p"]
+font_size = 40
+font_color = Color(0.948067, 0, 0.206232, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0ut5y"]
 font = ExtResource("4_u3d5b")
@@ -36,6 +40,23 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0338533, 0.0338533, 0.0338533, 1)
 
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.012
+offset_left = -356.0
+offset_top = 671.0
+offset_right = 388.0
+offset_bottom = 826.96
+grow_horizontal = 2
+text = "Ah não! As cartas acabaram! :("
+label_settings = SubResource("LabelSettings_kj67p")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="CardPanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 14
@@ -56,9 +77,9 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 48.0
+offset_left = 98.0
 offset_top = -427.0
-offset_right = -42.0
+offset_right = -81.0
 offset_bottom = 452.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -99,7 +120,7 @@ theme_override_font_sizes/font_size = 240
 icon = ExtResource("6_2eo1j")
 flat = true
 
-[node name="Play" type="Button" parent="."]
+[node name="Sair" type="Button" parent="."]
 offset_left = 451.0
 offset_top = 1682.0
 offset_right = 632.0
@@ -114,4 +135,4 @@ text = "SAIR"
 flat = true
 
 [connection signal="pressed" from="GenerateButton" to="." method="_on_generate_button_pressed"]
-[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Sair" to="." method="_on_sair_pressed"]
