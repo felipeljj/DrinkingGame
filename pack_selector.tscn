@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://dr1tvowqan2jm"]
+[gd_scene load_steps=14 format=3 uid="uid://dr1tvowqan2jm"]
 
 [ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Theme.tres" id="1_77pkn"]
 [ext_resource type="Script" path="res://pack_selector.gd" id="1_d25p4"]
-[ext_resource type="Texture2D" uid="uid://ccjp2ip5ddvli" path="res://arrow-up-01-512.webp" id="1_frdqn"]
 [ext_resource type="StyleBox" uid="uid://c3pnx47o2er20" path="res://PackSelector.tres" id="3_sbd8e"]
 [ext_resource type="Texture2D" uid="uid://c0b1rd1u65qd2" path="res://classicLogo.png" id="4_mdt40"]
 [ext_resource type="Texture2D" uid="uid://dfkse45bexk18" path="res://Animals.png" id="5_r02ch"]
@@ -71,16 +70,16 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 79.0
 offset_top = -248.0
-offset_right = -63.0
+offset_right = -51.0
 offset_bottom = 227.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 0
 theme = ExtResource("1_77pkn")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
+follow_focus = true
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 0
 
@@ -89,7 +88,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
-mouse_filter = 0
+mouse_filter = 2
 theme_override_constants/separation = 30
 
 [node name="Classic" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
@@ -122,7 +121,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-mouse_filter = 2
+mouse_filter = 1
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/ScrollContainer/HBoxContainer/Classic"]
@@ -174,7 +173,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-mouse_filter = 2
+mouse_filter = 1
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/ScrollContainer/HBoxContainer/NonSense"]
@@ -227,7 +226,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-mouse_filter = 2
+mouse_filter = 1
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/ScrollContainer/HBoxContainer/Weirdo"]
@@ -280,7 +279,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-mouse_filter = 2
+mouse_filter = 1
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/ScrollContainer/HBoxContainer/Languages"]
@@ -319,18 +318,6 @@ text = "Selecione seus packs"
 label_settings = SubResource("LabelSettings_gew27")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Arrow-up-01-512" type="Sprite2D" parent="."]
-position = Vector2(44, 953)
-rotation = -1.5708
-scale = Vector2(0.143648, 0.153491)
-texture = ExtResource("1_frdqn")
-
-[node name="Arrow-up-01-513" type="Sprite2D" parent="."]
-position = Vector2(1039, 951)
-rotation = -4.71239
-scale = Vector2(0.15578, 0.16871)
-texture = ExtResource("1_frdqn")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
