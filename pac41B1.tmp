@@ -1,13 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://dr1tvowqan2jm"]
+[gd_scene load_steps=15 format=3 uid="uid://dr1tvowqan2jm"]
 
 [ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Theme.tres" id="1_77pkn"]
 [ext_resource type="Script" path="res://pack_selector.gd" id="1_d25p4"]
+[ext_resource type="Script" path="res://scroll_container.gd" id="3_4bht2"]
 [ext_resource type="StyleBox" uid="uid://c3pnx47o2er20" path="res://PackSelector.tres" id="3_sbd8e"]
 [ext_resource type="Texture2D" uid="uid://c0b1rd1u65qd2" path="res://classicLogo.png" id="4_mdt40"]
 [ext_resource type="Texture2D" uid="uid://dfkse45bexk18" path="res://Animals.png" id="5_r02ch"]
 [ext_resource type="Texture2D" uid="uid://dk6cc5uqatjeg" path="res://Weirdo.png" id="6_al8b3"]
 [ext_resource type="Texture2D" uid="uid://cc3m31lce8t8h" path="res://languageIcon.png" id="7_hsnaw"]
-[ext_resource type="Texture2D" uid="uid://bldkpv6f0caiw" path="res://arrow.png" id="8_1qa0v"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hr2lx"]
 font_size = 48
@@ -44,9 +44,6 @@ corner_detail = 20
 [sub_resource type="LabelSettings" id="LabelSettings_gew27"]
 font_size = 120
 
-[sub_resource type="LabelSettings" id="LabelSettings_26sug"]
-font_size = 40
-
 [node name="PackSelector" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -62,8 +59,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 25.0
-offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0475574, 0.0475577, 0.0475577, 1)
@@ -86,9 +81,10 @@ theme = ExtResource("1_77pkn")
 layout_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 2
+follow_focus = true
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 0
-scroll_deadzone = 500
+script = ExtResource("3_4bht2")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer"]
 layout_mode = 2
@@ -316,63 +312,35 @@ anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.012
-offset_left = -443.0
-offset_top = 124.0
-offset_right = 469.0
-offset_bottom = 279.96
+offset_left = -359.0
+offset_top = 219.0
+offset_right = 360.0
+offset_bottom = 374.96
 grow_horizontal = 2
 text = "Selecione seus packs"
 label_settings = SubResource("LabelSettings_gew27")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.012
-offset_left = -430.0
-offset_top = 274.925
-offset_right = 482.0
-offset_bottom = 430.885
-grow_horizontal = 2
-text = "Desde o clássico, até alguns temas mais bizarros! Customize sua jogatina como desejar!"
-label_settings = SubResource("LabelSettings_26sug")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 456.0
-offset_top = 1604.67
-offset_right = 593.0
-offset_bottom = 1702.67
+offset_left = 492.0
+offset_top = 1543.0
+offset_right = 629.0
+offset_bottom = 1641.0
 theme_override_font_sizes/font_size = 60
 text = "Voltar"
 flat = true
 
 [node name="Começar" type="Button" parent="."]
 layout_mode = 0
-offset_left = 335.0
-offset_top = 1276.0
-offset_right = 725.0
-offset_bottom = 1463.0
-theme_override_font_sizes/font_size = 120
+offset_left = 456.0
+offset_top = 1445.0
+offset_right = 655.0
+offset_bottom = 1543.0
+theme_override_font_sizes/font_size = 60
 text = "Começar"
 flat = true
-
-[node name="Arrow" type="Sprite2D" parent="."]
-position = Vector2(35, 955)
-scale = Vector2(0.173828, 0.173828)
-texture = ExtResource("8_1qa0v")
-
-[node name="Arrow2" type="Sprite2D" parent="."]
-position = Vector2(1047, 956)
-rotation = 3.14159
-scale = Vector2(0.173828, 0.173828)
-texture = ExtResource("8_1qa0v")
 
 [connection signal="gui_input" from="MarginContainer/ScrollContainer/HBoxContainer/Classic" to="." method="_on_classic_gui_input"]
 [connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/Classic/classic" to="." method="_on_classic_pressed"]

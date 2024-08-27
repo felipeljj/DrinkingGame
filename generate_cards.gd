@@ -97,3 +97,6 @@ func update_card_visual(category):
 
 func _on_generate_button_pressed() -> void:
 	generate_card()
+
+func _on_play_pressed() -> void:
+	get_tree().change_scene_to_file("res://pack_selector.tscn")
