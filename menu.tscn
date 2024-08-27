@@ -1,17 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://dx2rcwl2bw1jj"]
+[gd_scene load_steps=8 format=3 uid="uid://dx2rcwl2bw1jj"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_i02xn"]
 [ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Theme.tres" id="1_m0k4p"]
-[ext_resource type="Texture2D" uid="uid://bwdr5mlwbngfc" path="res://drinkingLogo.png" id="3_fgs2j"]
+[ext_resource type="Texture2D" uid="uid://db5cqrgecsgy1" path="res://Drink'sDeck.png" id="3_mueqr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pmahl"]
-font_size = 68
+font_size = 180
 
-[sub_resource type="Theme" id="Theme_jb5gn"]
-default_font_size = 52
+[sub_resource type="Theme" id="Theme_3njct"]
+default_font_size = 100
+
+[sub_resource type="Theme" id="Theme_1rbwr"]
+default_font_size = 60
 
 [sub_resource type="LabelSettings" id="LabelSettings_t0be4"]
-font_size = 22
+font_size = 35
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -35,31 +38,35 @@ color = Color(0.0253638, 0.0253638, 0.0253638, 1)
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -321.0
-offset_top = 381.0
-offset_right = 371.0
-offset_bottom = 483.0
+anchor_bottom = 0.5
+offset_left = -455.0
+offset_top = -328.479
+offset_right = 461.0
+offset_bottom = -60.479
 grow_horizontal = 2
-text = "The Drinking Game"
+grow_vertical = 2
+text = "DRINK'S DECK"
 label_settings = SubResource("LabelSettings_pmahl")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(554, 252)
+position = Vector2(548, 378)
 rotation = 0.23911
-scale = Vector2(0.30957, 0.30957)
-texture = ExtResource("3_fgs2j")
+scale = Vector2(0.53331, 0.53331)
+texture = ExtResource("3_mueqr")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_top = 1177.0
+offset_top = 981.0
 offset_right = 1076.0
-offset_bottom = 1516.0
+offset_bottom = 1349.0
+size_flags_horizontal = 4
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
@@ -71,34 +78,39 @@ theme_override_constants/separation = 30
 [node name="Play" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = SubResource("Theme_jb5gn")
+focus_mode = 0
+theme = SubResource("Theme_3njct")
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.736574, 0.499666, 0, 1)
 theme_override_colors/font_color = Color(1, 0.701108, 0.17569, 1)
 text = "JOGAR"
 flat = true
 
-[node name="HowTo" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="howTo" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_jb5gn")
-text = "Como jogar"
-
-[node name="madeby" type="Label" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 5
-text = "proudly made by Felipe Latchuk <3"
-label_settings = SubResource("LabelSettings_t0be4")
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_vertical = 3
+focus_mode = 0
+theme = SubResource("Theme_1rbwr")
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.736574, 0.499666, 0, 1)
+theme_override_colors/font_color = Color(1, 0.701108, 0.17569, 1)
+text = "INSTRUÇÕES"
+flat = true
 
 [node name="madeby" type="Label" parent="."]
-offset_left = 380.0
-offset_top = 466.0
-offset_right = 744.0
-offset_bottom = 515.0
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -34.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_font_sizes/font_size = 5
-text = "v.0.0.1"
+text = "v.1.0.0"
 label_settings = SubResource("LabelSettings_t0be4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Play" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/HowTo" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/howTo" to="." method="_on_button_pressed"]
