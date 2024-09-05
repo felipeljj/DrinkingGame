@@ -40,7 +40,7 @@ func _on_languages_pressed() -> void:
 	_on_pack_panel_pressed("languages")
 	
 func _on_pool_pressed() -> void:
-	_on_pack_panel_pressed("languages")
+	_on_pack_panel_pressed("pool")
 
 	
 func _on_button_pressed() -> void:
