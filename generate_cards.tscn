@@ -4,8 +4,8 @@
 [ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Theme.tres" id="1_fm4ds"]
 [ext_resource type="StyleBox" uid="uid://c1c6qkqaplatx" path="res://CardPanel.tres" id="3_po1ig"]
 [ext_resource type="FontFile" uid="uid://uif4mjsdqker" path="res://Oswald-VariableFont_wght.ttf" id="4_u3d5b"]
-[ext_resource type="Texture2D" uid="uid://bq5504pqi6eqx" path="res://drinkingdeck.png" id="5_jjeac"]
-[ext_resource type="Texture2D" uid="uid://xrymm8t70ft3" path="res://Drink'sDeckSmall.png" id="6_2eo1j"]
+[ext_resource type="Texture2D" uid="uid://bq5504pqi6eqx" path="res://icons/drinkingdeck.png" id="5_jjeac"]
+[ext_resource type="Texture2D" uid="uid://xrymm8t70ft3" path="res://icons/Drink'sDeckSmall.png" id="6_2eo1j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kj67p"]
 font_size = 40
@@ -121,6 +121,7 @@ icon = ExtResource("6_2eo1j")
 flat = true
 
 [node name="Sair" type="Button" parent="."]
+layout_mode = 0
 offset_left = 451.0
 offset_top = 1682.0
 offset_right = 632.0
