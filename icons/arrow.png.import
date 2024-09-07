@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwdr5mlwbngfc"
-path="res://.godot/imported/drinkingLogo.png-ebce822a5169657e750dc34b42fe673c.ctex"
+uid="uid://bldkpv6f0caiw"
+path="res://.godot/imported/arrow.png-cff98228dd7af937739bc1e675386d1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://drinkingLogo.png"
-dest_files=["res://.godot/imported/drinkingLogo.png-ebce822a5169657e750dc34b42fe673c.ctex"]
+source_file="res://icons/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-cff98228dd7af937739bc1e675386d1a.ctex"]
 
 [params]
 

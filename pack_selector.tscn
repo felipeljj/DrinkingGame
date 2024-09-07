@@ -3,12 +3,12 @@
 [ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Theme.tres" id="1_77pkn"]
 [ext_resource type="Script" path="res://pack_selector.gd" id="1_d25p4"]
 [ext_resource type="StyleBox" uid="uid://c3pnx47o2er20" path="res://PackSelector.tres" id="3_sbd8e"]
-[ext_resource type="Texture2D" uid="uid://c0b1rd1u65qd2" path="res://classicLogo.png" id="4_mdt40"]
-[ext_resource type="Texture2D" uid="uid://dfkse45bexk18" path="res://Animals.png" id="5_r02ch"]
-[ext_resource type="Texture2D" uid="uid://dk6cc5uqatjeg" path="res://Weirdo.png" id="6_al8b3"]
-[ext_resource type="Texture2D" uid="uid://cc3m31lce8t8h" path="res://languageIcon.png" id="7_hsnaw"]
-[ext_resource type="Texture2D" uid="uid://bldkpv6f0caiw" path="res://arrow.png" id="8_1qa0v"]
-[ext_resource type="Texture2D" uid="uid://cg0faginnpxlv" path="res://votingIcon.png" id="8_chd8h"]
+[ext_resource type="Texture2D" uid="uid://c0b1rd1u65qd2" path="res://icons/classicLogo.png" id="4_mdt40"]
+[ext_resource type="Texture2D" uid="uid://dfkse45bexk18" path="res://icons/Animals.png" id="5_r02ch"]
+[ext_resource type="Texture2D" uid="uid://dk6cc5uqatjeg" path="res://icons/Weirdo.png" id="6_al8b3"]
+[ext_resource type="Texture2D" uid="uid://cc3m31lce8t8h" path="res://icons/languageIcon.png" id="7_hsnaw"]
+[ext_resource type="Texture2D" uid="uid://bldkpv6f0caiw" path="res://icons/arrow.png" id="8_1qa0v"]
+[ext_resource type="Texture2D" uid="uid://cg0faginnpxlv" path="res://icons/votingIcon.png" id="8_chd8h"]
 
 [sub_resource type="Theme" id="Theme_himfl"]
 

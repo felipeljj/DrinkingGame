@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0b1rd1u65qd2"
-path="res://.godot/imported/classicLogo.png-8ff438446924b4461266c9442aa4f282.ctex"
+uid="uid://dk6cc5uqatjeg"
+path="res://.godot/imported/Weirdo.png-9a58b60466966602a0b71d6b78f05867.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://classicLogo.png"
-dest_files=["res://.godot/imported/classicLogo.png-8ff438446924b4461266c9442aa4f282.ctex"]
+source_file="res://icons/Weirdo.png"
+dest_files=["res://.godot/imported/Weirdo.png-9a58b60466966602a0b71d6b78f05867.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db5cqrgecsgy1"
-path="res://.godot/imported/Drink'sDeck.png-35d24c1f73f03396aeff1b7c26b4c38e.ctex"
+uid="uid://bq5504pqi6eqx"
+path="res://.godot/imported/drinkingdeck.png-d8eb4cf9879fa7b649bc7849d5e2ad1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Drink'sDeck.png"
-dest_files=["res://.godot/imported/Drink'sDeck.png-35d24c1f73f03396aeff1b7c26b4c38e.ctex"]
+source_file="res://icons/drinkingdeck.png"
+dest_files=["res://.godot/imported/drinkingdeck.png-d8eb4cf9879fa7b649bc7849d5e2ad1f.ctex"]
 
 [params]
 

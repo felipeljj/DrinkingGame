@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc3m31lce8t8h"
-path="res://.godot/imported/languageIcon.png-44dd40f6767ced3ba5c63199d674a0a8.ctex"
+uid="uid://bwdr5mlwbngfc"
+path="res://.godot/imported/drinkingLogo.png-b999f438716aef6f4f3950a7246b6259.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://languageIcon.png"
-dest_files=["res://.godot/imported/languageIcon.png-44dd40f6767ced3ba5c63199d674a0a8.ctex"]
+source_file="res://icons/drinkingLogo.png"
+dest_files=["res://.godot/imported/drinkingLogo.png-b999f438716aef6f4f3950a7246b6259.ctex"]
 
 [params]
 
