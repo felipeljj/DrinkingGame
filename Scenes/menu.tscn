@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dx2rcwl2bw1jj"]
 
-[ext_resource type="Script" path="res://menu.gd" id="1_i02xn"]
-[ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Theme.tres" id="1_m0k4p"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_i02xn"]
+[ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Themes/Theme.tres" id="1_m0k4p"]
 [ext_resource type="Texture2D" uid="uid://db5cqrgecsgy1" path="res://icons/Drink'sDeck.png" id="3_mueqr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pmahl"]

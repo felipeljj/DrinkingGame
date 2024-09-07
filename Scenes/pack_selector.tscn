@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://dr1tvowqan2jm"]
 
-[ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Theme.tres" id="1_77pkn"]
-[ext_resource type="Script" path="res://pack_selector.gd" id="1_d25p4"]
-[ext_resource type="StyleBox" uid="uid://c3pnx47o2er20" path="res://PackSelector.tres" id="3_sbd8e"]
+[ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Themes/Theme.tres" id="1_77pkn"]
+[ext_resource type="Script" path="res://Scripts/pack_selector.gd" id="1_d25p4"]
+[ext_resource type="StyleBox" uid="uid://c3pnx47o2er20" path="res://Themes/PackSelector.tres" id="3_sbd8e"]
 [ext_resource type="Texture2D" uid="uid://c0b1rd1u65qd2" path="res://icons/classicLogo.png" id="4_mdt40"]
 [ext_resource type="Texture2D" uid="uid://dfkse45bexk18" path="res://icons/Animals.png" id="5_r02ch"]
 [ext_resource type="Texture2D" uid="uid://dk6cc5uqatjeg" path="res://icons/Weirdo.png" id="6_al8b3"]
