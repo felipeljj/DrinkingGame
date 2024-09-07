@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://doer8mqlh26ij"]
 
-[ext_resource type="FontFile" uid="uid://uif4mjsdqker" path="res://Oswald-VariableFont_wght.ttf" id="1_phb7k"]
+[ext_resource type="FontFile" uid="uid://uif4mjsdqker" path="res://Fonts/Oswald-VariableFont_wght.ttf" id="1_phb7k"]
 
 [resource]
 default_font = ExtResource("1_phb7k")
