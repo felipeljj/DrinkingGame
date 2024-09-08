@@ -30,39 +30,32 @@ var card_data = {
 		"Escolha um jogador para beber junto com você até o final do jogo.",
 		"Livramento: utilize essa carta para se livrar de qualquer punição do jogo. Só pode ser utilizada 1 vez.",
 		"Fique em silêncio absoluto até o final da rodada. Se alguém falar com você, essa pessoa bebe.",
-		"Todos na roda devem substituir alguma palavra de um filme por 'cu' e dizer em voz alta. Se alguém rir em alguma, todos bebem. A rodada continua até alguém rir."
+		"Todos na roda devem substituir alguma palavra de um filme por 'cu' e dizer em voz alta. Se alguém rir, bebe."
 		
 	],
 	"nonsense": [
-		"Imite uma girafa servindo chá. Você tem 30 segundos para convencer a roda que não deve beber. A roda decide.",
-		"A partir de agora, você só deve falar as palavras de forma invertida. Por exemplo: Oi, vira iO. Se errar, bebe.",
 		"Fique uma rodada inteira encarando o jogador à sua direita sem rir. Se der risada, bebe.",
 		"A partir de agora, você só pode usar o banheiro de luz apagada.",
-		"Faça uma dança sensual para a roda ao som de Evidencias do chitãozinho e xororó",
+		"Faça uma dança sensual para a roda ao som de Evidencias do chitãozinho e xororó. Ou beba.",
 		"Ande em câmera lenta até a porta e volte. Se alguém rir, essa pessoa bebe.",
 		"Você está submerso de baixo da água. Fale e atue como tal. Se esquecer, bebe.",
 		"Imite o som de um telefone antigo até alguém na roda fingir atender. Se ninguém atender, beba.",
 		"Convide um amigo imaginário para jogar. Explique as regras para ele em 30 segundos. Você e ele bebem",
 		"Fale em rimas até o final da rodada. Se esquecer, beba.",
 		"Cante uma música pop conhecida, mas só pode usar a palavra 'meow'.",
-		"Invente um poder, e revele-o e demonstre para a roda. A roda deve decidir se você bebe ou não",
-		"Invente algo maluco e faça todos da roda fazerem. Quem nao fazer, bebe",
 		"[NÃO DEIXE OS OUTROS LER] Fale em voz alta 'GENTE! EU DUVIDO!', e fique em silencio encarando todos. Se algúem da roda dizer 'meu pau no seu ouvido', todos bebem"
 	],
 	"weirdo": [
 		"Fique 3 rodadas com seu mindinho dentro do nariz.",
-		"Toda vez que alguém te perguntar algo, você deve responder e terminar com 'ain que delicia, queria mais'",
+		"Toda vez que alguém te perguntar algo, você deve responder e terminar com 'ai que delicia, queria mais'",
 		"[NAO LEIA EM VOZ ALTA] Você deve dar 3 gritos do nada, no momento que você quiser, até o final do jogo. Em cada grito, todos na roda bebem. Não explique sua carta.",
 		"Encoste seu nariz no cotovelo. Se conseguir, todos bebem. Ao contrário, você bebe.",
-		"Chupe o dedão do seu pé. Ou beba 3 copos",
-		"Coloque os dois dedos no ouvido, engula o cuspe, e fale 'ui que gostoso'",
 		"Beba um copo de cabeça pra baixo. (faça isso fora da casa kkk)",
 		"Seja um professor de yoga para um grupo de sapos imaginários e mostre a postura que eles devem fazer. Ou beba.",
 		"Use um chapéu feito de papel alumínio e finja que está protegendo sua mente de invasões alienígenas. Ou beba.",
 		"Faça um discurso sobre por que você deve ser eleito o 'Rei/Rainha das Baratas' e quais são suas promessas. Faça uma votação para descobrir quem na roda te elegeria. Se você perder, você bebe.",
 		"Crie uma nova língua e fale um parágrafo nela para a roda. Peça para adivinharem o significado. Se a roda advinhar, você bebe. Caso contrário, todos menos você bebem.",
 		"Fique sentado como se fosse uma estátua e, de vez em quando, faça movimentos inesperados. Se alguem se assustar, essa pessoa bebe. Caso contrario, você bebe. Valido a qualquer momento do jogo",
-		"Sem explicar nada para ninguém, levante e sente-se virado(a) para a parede. Fique assim por 2 rodadas sem interagir com ninguem. Se alguém te chamar de maluco(a), você bebe. Se ninguem falar nada, a roda bebe. Nao deixe ninguem ler essa carta.",
 		
 		
 	],
@@ -75,10 +68,8 @@ var card_data = {
 		"Recite o alfabeto ao contrário, mas com sotaque estrangeiro. Se errar, beba.",
 		"Apenas use palavras que começam com a letra 'S' até o próximo turno. Se errar, beba.",
 		"Diga um trava-línguas em um idioma estrangeiro. Se não conseguir, beba.",
-		"Fale um discurso de um minuto em uma língua inventada. Se alguém entender, todos bebem.",
-		"Traduza uma frase engraçada do português para outro idioma e diga aos outros para traduzirem de volta. Se não for igual, beba.",
-		"Leia uma receita em um idioma estrangeiro e peça para os outros adivinharem os ingredientes principais. Se alguem acertar, todos bebem",
-		"Todos na roda devem falar apenas no singular. Se alguem falar qualquer plural, todos bebem."
+		"Fale um discurso de 20 segundos em uma língua inventada. Se alguém entender, todos bebem.",
+
 	],
 	"pool": [
 		"Quem é mais provável de cometer um crime? O mais votado bebe",
@@ -93,8 +84,18 @@ var card_data = {
 		"Quem é mais pé no chão? O mais votado escolhe quem bebe.",
 		"Quem é mais influenciavel? O mais votado bebe",
 		"Quem é mais vagabundo(a)? O mais votado bebe",
-		"Se vocês tivessem que eliminar alguem da roda, por sobrevivencia. Quem deixariam pra trás? O mais votado bebe (é o jeito ne..)",
 		"Se você tivesse que viver o resto da vida com alguem da roda. Com quem você viveria? O mais votado bebe. Se empatar, todos bebem."
+	],
+	
+	"spicy": [
+		"Deixe um chupão na pessoa a sua direita, ou beba.",
+		"Deite no colo da pessoa a sua esquerda e leve um tapa na bunda. Ou beba 3 vezes.",
+		"Escolha duas pessoas para dar um beijo triplo. Ou beba 2 vezes",
+		"Conte um segredo íntimo, ou beba 2 vezes.",
+		"Troque uma peça de roupa com algúem, ou beba 2 vezes.",
+		"Tire uma peça de roupa em 10 segundos, ou beba.",
+		"Mostre seu ultimo nude pra pessoa a sua direita, ou beba 3 vezes",
+		"Com os olhos vendados, toque uma parte do corpo de alguem escolhida pelo grupo (sem saber onde vai tocar), ou beba 4 vezes.",
 		
 		
 	]
@@ -166,6 +167,8 @@ func update_card_visual(category):
 				card_panel.modulate = Color(0.989, 0.667, 0.411, 1)  # Laranja
 			"pool":
 				card_panel.modulate = Color(0.688, 0.214, 0.901, 1) # Roxo
+			"spicy":
+				card_panel.modulate = Color(1, 0.13, 0.231, 1) # Roxo
 
 func remove_card_panel():
 	if card_panel:
@@ -176,4 +179,4 @@ func _on_generate_button_pressed() -> void:
 	generate_card()
 
 func _on_sair_pressed() -> void:
-	get_tree().change_scene_to_file("res://pack_selector.tscn")
+	get_tree().change_scene_to_file("res://Scenes/pack_selector.tscn")
