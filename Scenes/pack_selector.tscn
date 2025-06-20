@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dr1tvowqan2jm"]
+[gd_scene load_steps=21 format=3 uid="uid://dr1tvowqan2jm"]
 
 [ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Themes/Theme.tres" id="1_77pkn"]
 [ext_resource type="Script" path="res://Scripts/pack_selector.gd" id="1_d25p4"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cc3m31lce8t8h" path="res://icons/languageIcon.png" id="7_hsnaw"]
 [ext_resource type="Texture2D" uid="uid://bldkpv6f0caiw" path="res://icons/arrow.png" id="8_1qa0v"]
 [ext_resource type="Texture2D" uid="uid://cg0faginnpxlv" path="res://icons/votingIcon.png" id="8_chd8h"]
+[ext_resource type="Texture2D" uid="uid://cry1vbibqv400" path="res://icons/spicylogo.png" id="9_uoc11"]
 
 [sub_resource type="Theme" id="Theme_himfl"]
 
@@ -52,6 +53,14 @@ corner_radius_bottom_right = 95
 corner_radius_bottom_left = 95
 corner_detail = 20
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jkh3"]
+bg_color = Color(1, 0.129642, 0.231417, 1)
+corner_radius_top_left = 95
+corner_radius_top_right = 95
+corner_radius_bottom_right = 95
+corner_radius_bottom_left = 95
+corner_detail = 20
+
 [sub_resource type="LabelSettings" id="LabelSettings_gew27"]
 font_size = 120
 
@@ -85,7 +94,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 79.0
 offset_top = -248.0
-offset_right = -71.0
+offset_right = -50.0
 offset_bottom = 227.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -97,7 +106,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 2
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 0
-scroll_deadzone = 500
+scroll_deadzone = 250
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer"]
 layout_mode = 2
@@ -373,6 +382,59 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="Spicy" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5jkh3")
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Spicy"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.5
+offset_right = 92.5
+offset_bottom = 67.0
+grow_horizontal = 2
+text = "Spicy"
+label_settings = SubResource("LabelSettings_hr2lx")
+horizontal_alignment = 1
+
+[node name="spicy" type="Button" parent="MarginContainer/ScrollContainer/HBoxContainer/Spicy"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_filter = 1
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/ScrollContainer/HBoxContainer/Spicy"]
+position = Vector2(225, 285)
+scale = Vector2(0.25875, 0.25875)
+texture = ExtResource("9_uoc11")
+
+[node name="description" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Spicy"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -209.0
+offset_top = 72.0
+offset_right = 213.0
+offset_bottom = 145.0
+grow_horizontal = 2
+text = "+18"
+label_settings = SubResource("LabelSettings_cgleg")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -401,6 +463,23 @@ offset_right = 482.0
 offset_bottom = 430.885
 grow_horizontal = 2
 text = "Desde o clássico, até alguns temas mais bizarros! Customize sua jogatina como desejar!"
+label_settings = SubResource("LabelSettings_26sug")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="Label2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.012
+offset_left = -456.0
+offset_top = 309.075
+offset_right = 456.0
+offset_bottom = 465.035
+grow_horizontal = 2
+text = "Deslize para escolher seus packs."
 label_settings = SubResource("LabelSettings_26sug")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -445,5 +524,6 @@ texture = ExtResource("8_1qa0v")
 [connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/Weirdo/weirdo" to="." method="_on_weirdo_pressed"]
 [connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/Languages/languages" to="." method="_on_languages_pressed"]
 [connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/Pool/pool" to="." method="_on_pool_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/Spicy/spicy" to="." method="_on_spicy_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Começar" to="." method="_on_começar_pressed"]

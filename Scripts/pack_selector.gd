@@ -6,13 +6,15 @@ var pack_state = {
 	"weirdo": false,
 	"languages": false,
 	"pool": false,
+	"spicy": false,
 }
 @onready var pack_panels = {
 	"classico": $MarginContainer/ScrollContainer/HBoxContainer/Classic,
 	"nonsense": $MarginContainer/ScrollContainer/HBoxContainer/NonSense,
 	"weirdo": $MarginContainer/ScrollContainer/HBoxContainer/Weirdo,
 	"languages": $MarginContainer/ScrollContainer/HBoxContainer/Languages,
-	"pool": $MarginContainer/ScrollContainer/HBoxContainer/Pool
+	"pool": $MarginContainer/ScrollContainer/HBoxContainer/Pool,
+	"spicy": $MarginContainer/ScrollContainer/HBoxContainer/Spicy
 }
 func _ready():
 	for pack_name in pack_state.keys():
@@ -41,7 +43,10 @@ func _on_languages_pressed() -> void:
 	
 func _on_pool_pressed() -> void:
 	_on_pack_panel_pressed("pool")
-
+	
+func _on_spicy_pressed() -> void:
+	_on_pack_panel_pressed("spicy")
+	
 	
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://menu.tscn")
@@ -51,7 +56,7 @@ func _process(delta: float) -> void:
 
 func _on_começar_pressed() -> void:
 	# Carrega a cena de geração de cartas
-	var packed_scene = load("res://generate_cards.tscn")  # Carrega a cena como PackedScene
+	var packed_scene = load("res://Scenes/generate_cards.tscn")  # Carrega a cena como PackedScene
 	var next_scene = packed_scene.instantiate()  # Cria uma instância da cena
 
 	# Passa o estado dos pacotes para a nova cena
