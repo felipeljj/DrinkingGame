@@ -1,15 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxbv0pjrw5m0i"]
+[gd_scene load_steps=9 format=3 uid="uid://bxbv0pjrw5m0i"]
 
-[ext_resource type="Script" path="res://Scripts/generate_cards.gd" id="1_10yab"]
+[ext_resource type="Script" uid="uid://dbcib872ulipv" path="res://Scripts/generate_cards.gd" id="1_10yab"]
 [ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Themes/Theme.tres" id="1_fm4ds"]
 [ext_resource type="StyleBox" uid="uid://c1c6qkqaplatx" path="res://Themes/CardPanel.tres" id="3_po1ig"]
 [ext_resource type="FontFile" uid="uid://uif4mjsdqker" path="res://Fonts/Oswald-VariableFont_wght.ttf" id="4_u3d5b"]
 [ext_resource type="Texture2D" uid="uid://bq5504pqi6eqx" path="res://icons/drinkingdeck.png" id="5_jjeac"]
 [ext_resource type="Texture2D" uid="uid://xrymm8t70ft3" path="res://icons/Drink'sDeckSmall.png" id="6_2eo1j"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_kj67p"]
-font_size = 40
-font_color = Color(0.948067, 0, 0.206232, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0ut5y"]
 font = ExtResource("4_u3d5b")
@@ -39,23 +35,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0338533, 0.0338533, 0.0338533, 1)
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.012
-offset_left = -356.0
-offset_top = 671.0
-offset_right = 388.0
-offset_bottom = 826.96
-grow_horizontal = 2
-text = "Ah não! As cartas acabaram! :("
-label_settings = SubResource("LabelSettings_kj67p")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
 
 [node name="CardPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -129,9 +108,9 @@ offset_bottom = 1839.0
 size_flags_vertical = 3
 focus_mode = 0
 theme = SubResource("Theme_s0rtg")
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(0.736574, 0.499666, 0, 1)
 theme_override_colors/font_color = Color(1, 0.701108, 0.17569, 1)
+theme_override_colors/font_focus_color = Color(0.736574, 0.499666, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 text = "SAIR"
 flat = true
 

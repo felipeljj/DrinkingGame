@@ -103,62 +103,197 @@ var card_data = {
 
 @onready var card_panel = $CardPanel
 @onready var card_label = $CardPanel/CardLabel
+@onready var generate_button = $GenerateButton
 
 var displayed_texts = {}  # Dicionário para rastrear textos exibidos
 var panel_freed = false  # Variável para rastrear se o painel foi removido
 
+# Variáveis para gestos de deslizar
+var touch_start_position = Vector2.ZERO
+var is_dragging = false
+var drag_threshold = 100.0  # Distância mínima para considerar como deslize
+var card_original_position = Vector2.ZERO
+var is_animating = false
+
+# Variáveis para animação
+var tween: Tween
+
+# Efeitos visuais
+var card_shadow: ColorRect
+var original_scale = Vector2.ONE
+
 func _ready():
-	# Inicializa o dicionário de textos exibidos para cada categoria
 	for category in card_data.keys():
 		displayed_texts[category] = []
+	
+	if card_panel:
+		card_original_position = card_panel.position
+		original_scale = card_panel.scale
+		_create_card_shadow()
+		# Permite que o gesto de arrastar passe através do painel e do texto
+		card_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		card_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
 	generate_card()
 
-func generate_card():
-	if panel_freed:
-		return  # Se o painel foi removido, não tenta gerar mais cartas
+func _create_card_shadow():
+	if not card_panel: return
+	if card_shadow and is_instance_valid(card_shadow): card_shadow.queue_free()
+	
+	card_shadow = ColorRect.new()
+	card_shadow.color = Color(0, 0, 0, 0.3)
+	card_shadow.size = card_panel.size
+	card_shadow.position = card_panel.position + Vector2(10, 10)
+	card_shadow.z_index = card_panel.z_index - 1
+	card_shadow.scale = card_panel.scale
+	card_shadow.rotation = card_panel.rotation
+	card_panel.get_parent().add_child(card_shadow)
 
-	var available_categories = []
-	
-	# Adiciona as categorias ativas ao array
-	for pack_name in pack_state.keys():
-		if pack_state[pack_name]:
-			available_categories.append(pack_name)
-	
-	# Remove categorias esgotadas
-	available_categories = available_categories.filter(func(category):
-		return card_data[category].size() != displayed_texts[category].size()
-	)
-	
-	if available_categories.size() > 0:
-		var selected_category = available_categories[randi() % available_categories.size()]
-		var card_texts = card_data[selected_category]
+func _input(event):
+	if panel_freed or is_animating: return
+
+	# Handle start of drag (touch or mouse click)
+	if (event is InputEventScreenTouch and event.pressed) or \
+	   (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed):
+		touch_start_position = event.position
+		is_dragging = true
+
+	# Handle end of drag (release touch or mouse click)
+	elif (event is InputEventScreenTouch and not event.pressed) or \
+		 (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed):
+		if is_dragging:
+			is_dragging = false
+			_handle_swipe_gesture()
+
+	# Handle dragging motion
+	elif (event is InputEventScreenDrag or event is InputEventMouseMotion) and is_dragging and card_panel:
+		var current_pos = event.position
+		var drag_distance_x = current_pos.x - touch_start_position.x
+		card_panel.position.x = card_original_position.x + drag_distance_x
 		
-		# Filtra os textos que já foram exibidos
-		var unused_texts = []
-		for text in card_texts:
-			if text not in displayed_texts[selected_category]:
-				unused_texts.append(text)
-		
-		if unused_texts.size() > 0:
-			var selected_text = unused_texts[randi() % unused_texts.size()]
-			update_card_visual(selected_category)
-			
-			if card_label and !panel_freed:
-				card_label.text = selected_text
-			
-			displayed_texts[selected_category].append(selected_text)
-		else:
-			generate_card()  # Se a categoria esgotou, gera uma nova carta de outra categoria
+		if card_shadow:
+			card_shadow.position.x = card_panel.position.x + 10
+			card_shadow.position.y = card_panel.position.y + 10
+
+func _handle_swipe_gesture():
+	if not card_panel: return
+
+	var swipe_distance = card_panel.position.x - card_original_position.x
+	if abs(swipe_distance) > drag_threshold:
+		_animate_card_swipe(swipe_distance)
 	else:
-		if card_label and !panel_freed:
-			card_label.text = "Todas as cartas foram jogadas!"  # Mensagem opcional
-		remove_card_panel()
+		_reset_card_position()
+
+func _animate_card_swipe(distance):
+	is_animating = true
+	var direction = 1 if distance > 0 else -1
+	var viewport_width = get_viewport().size.x
+
+	if tween: tween.kill()
+	tween = create_tween().set_parallel(true)
+	# --- Animação de Saída ---
+	tween.tween_property(card_panel, "position:x", card_original_position.x + (direction * viewport_width), 0.3)
+	tween.tween_property(card_panel, "modulate:a", 0.0, 0.2)
+	if card_shadow:
+		tween.tween_property(card_shadow, "position:x", card_original_position.x + (direction * viewport_width), 0.3)
+		tween.tween_property(card_shadow, "modulate:a", 0.0, 0.2)
+	
+	await tween.finished
+	
+	generate_card() # Pega a próxima carta
+	if panel_freed: 
+		is_animating = false
+		return
+
+	# --- Preparação para Entrada ---
+	card_panel.position.x = card_original_position.x - (direction * viewport_width)
+	card_panel.rotation = 0.0
+	card_panel.modulate.a = 0.0
+	if card_shadow:
+		card_shadow.position.x = card_original_position.x - (direction * viewport_width) + 10
+		card_shadow.rotation = 0.0
+		card_shadow.modulate.a = 0.0
+
+	# --- Animação de Entrada ---
+	tween = create_tween().set_parallel(true)
+	tween.tween_property(card_panel, "position", card_original_position, 0.4).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
+	tween.tween_property(card_panel, "modulate:a", 1.0, 0.4)
+	if card_shadow:
+		tween.tween_property(card_shadow, "position", card_original_position + Vector2(10, 10), 0.4).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
+		tween.tween_property(card_shadow, "modulate:a", 0.3, 0.4)
+	
+	await tween.finished
+	is_animating = false
+
+func _reset_card_position():
+	if not card_panel: return
+	
+	if tween: tween.kill()
+	tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(card_panel, "position", card_original_position, 0.2)
+	if card_shadow:
+		tween.tween_property(card_shadow, "position", card_original_position + Vector2(10, 10), 0.2)
+
+func generate_card():
+	if panel_freed: return
+
+	var available_categories = pack_state.keys().filter(func(p): return pack_state[p])
+	var available_cards_exist = false
+	for category in available_categories:
+		if displayed_texts[category].size() < card_data[category].size():
+			available_cards_exist = true
+			break
+	
+	if available_cards_exist:
+		var category
+		while true:
+			category = available_categories.pick_random()
+			if displayed_texts[category].size() < card_data[category].size():
+				break
+		
+		var unused_texts = card_data[category].filter(func(text): return not text in displayed_texts[category])
+		var selected_text = unused_texts.pick_random()
+		
+		update_card_visual(category)
+		if card_label and is_instance_valid(card_label):
+			card_label.text = selected_text
+		displayed_texts[category].append(selected_text)
+	else:
+		_show_end_of_cards_message()
+
+func _show_end_of_cards_message():
+	if generate_button: generate_button.visible = false
+	
+	# 1. Cria o rótulo
+	var end_label = Label.new()
+	end_label.text = "Ah não, as cartas acabaram! :("
+	
+	var settings = LabelSettings.new()
+	settings.font_size = 60
+	settings.font_color = Color("e5193f")
+	settings.font = load("res://Fonts/Oswald-VariableFont_wght.ttf")
+	end_label.label_settings = settings
+	
+	# 2. Adiciona à cena ANTES de fazer qualquer cálculo
+	add_child(end_label)
+	
+	# 3. Força o posicionamento manual no centro da tela
+	# Espera um frame para garantir que o tamanho do rótulo foi calculado
+	await get_tree().process_frame
+	
+	var screen_size = get_viewport_rect().size
+	var label_size = end_label.size
+	
+	end_label.position.x = (screen_size.x - label_size.x) / 2.0
+	end_label.position.y = (screen_size.y - label_size.y) / 2.0
+	
+	remove_card_panel()
 
 func update_card_visual(category):
-	if card_panel and !panel_freed:  # Verificar se o painel ainda existe antes de modificar a cor
+	if card_panel and !panel_freed:
 		match category:
 			"classico":
-				card_panel.modulate = Color(1, 1, 1)  # Branco
+				card_panel.modulate = Color(1, 1, 1, 1)  # Branco
 			"nonsense":
 				card_panel.modulate = Color(1, 0.392, 0.624, 1)  # Rosa
 			"weirdo":
@@ -168,15 +303,30 @@ func update_card_visual(category):
 			"pool":
 				card_panel.modulate = Color(0.688, 0.214, 0.901, 1) # Roxo
 			"spicy":
-				card_panel.modulate = Color(1, 0.13, 0.231, 1) # Roxo
+				card_panel.modulate = Color(1, 0.13, 0.231, 1)
+		
+		if not card_shadow or not is_instance_valid(card_shadow):
+			_create_card_shadow()
 
 func remove_card_panel():
 	if card_panel:
 		panel_freed = true
-		card_panel.queue_free()  # Remove o painel de cartas
+		if card_shadow and is_instance_valid(card_shadow):
+			card_shadow.queue_free()
+			card_shadow = null
+		card_panel.queue_free()
 
 func _on_generate_button_pressed() -> void:
-	generate_card()
+	if not is_animating:
+		_animate_card_swipe(1)
 
 func _on_sair_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/pack_selector.tscn")
+
+func _exit_tree():
+	if tween:
+		tween.kill()
+		tween = null
+	if card_shadow and is_instance_valid(card_shadow):
+		card_shadow.queue_free()
+		card_shadow = null
