@@ -1,0 +1,93 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs8ursts4mtui"]
+
+[ext_resource type="Script" uid="uid://xae6l4t3dkk6" path="res://Scripts/mode_selector.gd" id="1_mode"]
+[ext_resource type="FontFile" uid="uid://uif4mjsdqker" path="res://Fonts/Oswald-VariableFont_wght.ttf" id="2_font"]
+
+[node name="ModeSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mode")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.05, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = 120.0
+offset_right = -80.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 72
+text = "Escolha o Modo"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 32
+text = "Como vocês querem jogar?"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ModeGrid" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Normal" type="Button" parent="VBoxContainer/ModeGrid"]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 52
+text = "Clássico
+"
+
+[node name="Times" type="Button" parent="VBoxContainer/ModeGrid"]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 52
+disabled = true
+text = "Até 4 pessoas 
+(em breve)"
+
+[node name="Spacer2" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Voltar" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.3, 0.3, 1)
+theme_override_font_sizes/font_size = 40
+text = "← Voltar"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/ModeGrid/Normal" to="." method="_on_normal_pressed"]
+[connection signal="pressed" from="VBoxContainer/ModeGrid/Times" to="." method="_on_times_pressed"]
+[connection signal="pressed" from="VBoxContainer/Voltar" to="." method="_on_voltar_pressed"]

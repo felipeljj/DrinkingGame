@@ -1,0 +1,463 @@
+[gd_scene load_steps=12 format=3 uid="uid://never_selector"]
+
+[ext_resource type="Script" path="res://Scripts/never_have_i_ever_selector.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Themes/Theme.tres" id="2_theme"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font_size = 120
+
+[sub_resource type="LabelSettings" id="LabelSettings_subtitle"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_pack_name"]
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pack_desc"]
+font_size = 23
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_leve"]
+bg_color = Color(0.4, 0.75, 1.0, 1)
+corner_radius_top_left = 95
+corner_radius_top_right = 95
+corner_radius_bottom_right = 95
+corner_radius_bottom_left = 95
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_festeiro"]
+bg_color = Color(0.2, 0.5, 0.9, 1)
+corner_radius_top_left = 95
+corner_radius_top_right = 95
+corner_radius_bottom_right = 95
+corner_radius_bottom_left = 95
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_romance"]
+bg_color = Color(0.6, 0.4, 0.85, 1)
+corner_radius_top_left = 95
+corner_radius_top_right = 95
+corner_radius_bottom_right = 95
+corner_radius_bottom_left = 95
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ousado"]
+bg_color = Color(0.15, 0.2, 0.45, 1)
+corner_radius_top_left = 95
+corner_radius_top_right = 95
+corner_radius_bottom_right = 95
+corner_radius_bottom_left = 95
+corner_detail = 20
+
+[sub_resource type="Theme" id="Theme_buttons"]
+default_font_size = 100
+
+[node name="NeverHaveIEverSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.05, 0.12, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -443.0
+offset_top = 124.0
+offset_right = 469.0
+offset_bottom = 280.0
+grow_horizontal = 2
+text = "EU NUNCA"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PackCounter" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 70.0
+offset_right = 300.0
+offset_bottom = 110.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 35
+text = "1 pack selecionado"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -430.0
+offset_top = 275.0
+offset_right = 482.0
+offset_bottom = 380.0
+grow_horizontal = 2
+text = "Selecione as categorias e descubra quem já fez o quê!"
+label_settings = SubResource("LabelSettings_subtitle")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SwipeHint" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 470.0
+offset_right = 400.0
+offset_bottom = 530.0
+grow_horizontal = 2
+text = "Deslize para escolher seus packs."
+label_settings = SubResource("LabelSettings_subtitle")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -248.0
+offset_right = -50.0
+offset_bottom = 227.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+clip_contents = false
+layout_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+scroll_deadzone = 250
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="Leve" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_leve")
+
+[node name="name" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Leve"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.5
+offset_right = 92.5
+offset_bottom = 67.0
+grow_horizontal = 2
+text = "LEVE"
+label_settings = SubResource("LabelSettings_pack_name")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Leve"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -80.0
+offset_right = 100.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "😇"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="description" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Leve"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -187.0
+offset_top = 72.0
+offset_right = 187.0
+offset_bottom = 144.0
+grow_horizontal = 2
+text = "Perguntas inocentes para qualquer grupo"
+label_settings = SubResource("LabelSettings_pack_desc")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="MarginContainer/ScrollContainer/HBoxContainer/Leve"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_filter = 1
+flat = true
+
+[node name="Festeiro" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_festeiro")
+
+[node name="name" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Festeiro"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.5
+offset_right = 92.5
+offset_bottom = 67.0
+grow_horizontal = 2
+text = "FESTEIRO"
+label_settings = SubResource("LabelSettings_pack_name")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Festeiro"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -80.0
+offset_right = 100.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "🎉"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="description" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Festeiro"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -172.0
+offset_top = 72.0
+offset_right = 176.0
+offset_bottom = 183.0
+grow_horizontal = 2
+text = "Sobre festas, bebidas e curtição"
+label_settings = SubResource("LabelSettings_pack_desc")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="MarginContainer/ScrollContainer/HBoxContainer/Festeiro"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_filter = 1
+flat = true
+
+[node name="Relacionamentos" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_romance")
+
+[node name="name" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Relacionamentos"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.5
+offset_right = 92.5
+offset_bottom = 67.0
+grow_horizontal = 2
+text = "ROMANCE"
+label_settings = SubResource("LabelSettings_pack_name")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Relacionamentos"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -80.0
+offset_right = 100.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "💕"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="description" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Relacionamentos"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -209.0
+offset_top = 72.0
+offset_right = 213.0
+offset_bottom = 145.0
+grow_horizontal = 2
+text = "Crushes, namoro e relacionamentos"
+label_settings = SubResource("LabelSettings_pack_desc")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="MarginContainer/ScrollContainer/HBoxContainer/Relacionamentos"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_filter = 1
+flat = true
+
+[node name="Ousado" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ousado")
+
+[node name="name" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Ousado"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.5
+offset_right = 92.5
+offset_bottom = 67.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "OUSADO"
+label_settings = SubResource("LabelSettings_pack_name")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Ousado"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -80.0
+offset_right = 100.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "🔥"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="description" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Ousado"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -209.0
+offset_top = 72.0
+offset_right = 213.0
+offset_bottom = 145.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "+18 picante"
+label_settings = SubResource("LabelSettings_pack_desc")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="MarginContainer/ScrollContainer/HBoxContainer/Ousado"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_filter = 1
+flat = true
+
+[node name="Voltar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 1605.0
+offset_right = 605.0
+offset_bottom = 1703.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 60
+text = "Voltar"
+flat = true
+
+[node name="Começar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 1352.0
+offset_right = 729.0
+offset_bottom = 1539.0
+focus_mode = 0
+theme = SubResource("Theme_buttons")
+theme_override_colors/font_color = Color(0.4, 0.7, 1, 1)
+theme_override_colors/font_focus_color = Color(0.2, 0.5, 0.8, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 120
+text = "Começar"
+flat = true
+
+[connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/Leve/Button" to="." method="_on_leve_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/Festeiro/Button" to="." method="_on_festeiro_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/Relacionamentos/Button" to="." method="_on_relacionamentos_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/Ousado/Button" to="." method="_on_ousado_pressed"]
+[connection signal="pressed" from="Voltar" to="." method="_on_voltar_pressed"]
+[connection signal="pressed" from="Começar" to="." method="_on_começar_pressed"]

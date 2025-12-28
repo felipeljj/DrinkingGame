@@ -1,0 +1,258 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8qhub1gamehub"]
+
+[ext_resource type="Script" path="res://Scripts/game_hub.gd" id="1_hub"]
+[ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Themes/Theme.tres" id="2_theme"]
+[ext_resource type="Texture2D" uid="uid://db5cqrgecsgy1" path="res://icons/Drink'sDeck.png" id="3_drinks"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_game"]
+font_size = 36
+
+[node name="GameHub" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_hub")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0253638, 0.0253638, 0.0253638, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 50.0
+offset_right = -30.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "ESCOLHA SEU JOGO"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 28
+text = "Toque em um jogo para começar!"
+horizontal_alignment = 1
+
+[node name="GamesGrid" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="DrinksDeckPanel" type="Panel" parent="VBoxContainer/GamesGrid"]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/GamesGrid/DrinksDeckPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/GamesGrid/DrinksDeckPanel/VBox"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_drinks")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="VBoxContainer/GamesGrid/DrinksDeckPanel/VBox"]
+layout_mode = 2
+text = "DRINK'S DECK"
+label_settings = SubResource("LabelSettings_game")
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="VBoxContainer/GamesGrid/DrinksDeckPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 22
+text = "Cartas de desafios"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/GamesGrid/DrinksDeckPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+
+[node name="NeverHaveIEverPanel" type="Panel" parent="VBoxContainer/GamesGrid"]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/GamesGrid/NeverHaveIEverPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="IconLabel" type="Label" parent="VBoxContainer/GamesGrid/NeverHaveIEverPanel/VBox"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "🙈"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="VBoxContainer/GamesGrid/NeverHaveIEverPanel/VBox"]
+layout_mode = 2
+text = "EU NUNCA"
+label_settings = SubResource("LabelSettings_game")
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="VBoxContainer/GamesGrid/NeverHaveIEverPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 22
+text = "Quem já fez, bebe!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/GamesGrid/NeverHaveIEverPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+
+[node name="AbsurdCardsPanel" type="Panel" parent="VBoxContainer/GamesGrid"]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/GamesGrid/AbsurdCardsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="IconLabel" type="Label" parent="VBoxContainer/GamesGrid/AbsurdCardsPanel/VBox"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "🃏"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="VBoxContainer/GamesGrid/AbsurdCardsPanel/VBox"]
+layout_mode = 2
+text = "CARTAS ABSURDAS"
+label_settings = SubResource("LabelSettings_game")
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="VBoxContainer/GamesGrid/AbsurdCardsPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 22
+text = "Multiplayer 3-15"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/GamesGrid/AbsurdCardsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+
+[node name="ComingSoon2" type="Panel" parent="VBoxContainer/GamesGrid"]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/GamesGrid/ComingSoon2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="IconLabel" type="Label" parent="VBoxContainer/GamesGrid/ComingSoon2/VBox"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "🔒"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="VBoxContainer/GamesGrid/ComingSoon2/VBox"]
+layout_mode = 2
+text = "EM BREVE"
+label_settings = SubResource("LabelSettings_game")
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="VBoxContainer/GamesGrid/ComingSoon2/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_font_sizes/font_size = 22
+text = "Novo jogo em breve!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "← Voltar"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/GamesGrid/DrinksDeckPanel/Button" to="." method="_on_drinks_deck_pressed"]
+[connection signal="pressed" from="VBoxContainer/GamesGrid/NeverHaveIEverPanel/Button" to="." method="_on_never_have_i_ever_pressed"]
+[connection signal="pressed" from="VBoxContainer/GamesGrid/AbsurdCardsPanel/Button" to="." method="_on_absurd_cards_pressed"]
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_pressed"]

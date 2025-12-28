@@ -11,16 +11,29 @@ config_version=5
 [application]
 
 config/name="DrinkingGame"
-run/main_scene="res://Scenes/menu.tscn"
-config/features=PackedStringArray("4.3", "Mobile")
+run/main_scene="uid://bnsigq2hvhi21"
+config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icons/icon.svg"
+
+[autoload]
+
+UIManager="*res://Scripts/ui_manager.gd"
+ParticlesManager="*res://Scripts/particles_manager.gd"
+LocalizationManager="*res://Scripts/localization_manager.gd"
+AchievementsManager="*res://Scripts/achievements_manager.gd"
+MultiplayerManager="*res://Scripts/multiplayer_manager.gd"
 
 [display]
 
 window/size/viewport_width=1080
 window/size/viewport_height=1920
+window/size/resizable=false
 window/stretch/mode="viewport"
 window/handheld/orientation=1
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://translations/pt.json", "res://translations/en.json", "res://translations/es.json")
 
 [rendering]
 

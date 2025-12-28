@@ -1,0 +1,5 @@
+# Netlify redirects file
+# Redireciona todas as rotas para o arquivo HTML principal
+
+/*    /DrinkingGame.html   200
+

@@ -1,0 +1,391 @@
+[gd_scene load_steps=9 format=3 uid="uid://dgpuvh5cs48h"]
+
+[ext_resource type="Script" uid="uid://mjeh6bwtqjyt" path="res://Scripts/custom_pack_editor.gd" id="1_cpe"]
+[ext_resource type="FontFile" uid="uid://uif4mjsdqker" path="res://Fonts/Oswald-VariableFont_wght.ttf" id="2_font"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("2_font")
+font_size = 55
+font_color = Color(0.5, 0.8, 0.4, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tab_active"]
+bg_color = Color(0.3, 0.5, 0.9, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.15, 0.25, 0.45, 0.4)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tab_inactive"]
+bg_color = Color(0.12, 0.12, 0.16, 0.8)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3, 0.3, 0.35, 0.5)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.1, 0.1, 0.14, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25, 0.25, 0.3, 0.6)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_save_btn"]
+bg_color = Color(0.2, 0.75, 0.35, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0.1, 0.4, 0.2, 0.4)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_back_btn"]
+bg_color = Color(0.15, 0.15, 0.2, 0.8)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.4, 0.4, 0.5, 0.5)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="CustomPackEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cpe")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03, 0.03, 0.05, 1)
+
+[node name="MainVBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="TitleContainer" type="HBoxContainer" parent="MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Icon" type="Label" parent="MainVBox/TitleContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "✨"
+
+[node name="Title" type="Label" parent="MainVBox/TitleContainer"]
+layout_mode = 2
+text = "CRIAR PACKS"
+label_settings = SubResource("LabelSettings_title")
+
+[node name="TabButtons" type="HBoxContainer" parent="MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TabCriar" type="Button" parent="MainVBox/TabButtons"]
+custom_minimum_size = Vector2(380, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/hover = SubResource("StyleBoxFlat_tab_active")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tab_active")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tab_active")
+text = "Criar Pack"
+
+[node name="TabGerenciar" type="Button" parent="MainVBox/TabButtons"]
+custom_minimum_size = Vector2(380, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.75, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/hover = SubResource("StyleBoxFlat_tab_inactive")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tab_inactive")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tab_inactive")
+text = "Meus Packs"
+
+[node name="TabContent" type="Control" parent="MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CriarTab" type="ScrollContainer" parent="MainVBox/TabContent"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CriarVBox" type="VBoxContainer" parent="MainVBox/TabContent/CriarTab"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 25
+
+[node name="NameCard" type="PanelContainer" parent="MainVBox/TabContent/CriarTab/CriarVBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="NameSection" type="VBoxContainer" parent="MainVBox/TabContent/CriarTab/CriarVBox/NameCard"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="NameMargin" type="MarginContainer" parent="MainVBox/TabContent/CriarTab/CriarVBox/NameCard/NameSection"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 20
+
+[node name="NameVBox" type="VBoxContainer" parent="MainVBox/TabContent/CriarTab/CriarVBox/NameCard/NameSection/NameMargin"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="NameLabel" type="Label" parent="MainVBox/TabContent/CriarTab/CriarVBox/NameCard/NameSection/NameMargin/NameVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.75, 1, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 36
+text = "Nome do Pack"
+horizontal_alignment = 1
+
+[node name="NameInput" type="LineEdit" parent="MainVBox/TabContent/CriarTab/CriarVBox/NameCard/NameSection/NameMargin/NameVBox"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Ex: Festa da Gabi"
+alignment = 1
+max_length = 30
+
+[node name="ColorCard" type="PanelContainer" parent="MainVBox/TabContent/CriarTab/CriarVBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="ColorSection" type="VBoxContainer" parent="MainVBox/TabContent/CriarTab/CriarVBox/ColorCard"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ColorMargin" type="MarginContainer" parent="MainVBox/TabContent/CriarTab/CriarVBox/ColorCard/ColorSection"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 20
+
+[node name="ColorVBox" type="VBoxContainer" parent="MainVBox/TabContent/CriarTab/CriarVBox/ColorCard/ColorSection/ColorMargin"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ColorLabel" type="Label" parent="MainVBox/TabContent/CriarTab/CriarVBox/ColorCard/ColorSection/ColorMargin/ColorVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0.8, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 36
+text = "Cor do Pack"
+horizontal_alignment = 1
+
+[node name="ColorPreview" type="Panel" parent="MainVBox/TabContent/CriarTab/CriarVBox/ColorCard/ColorSection/ColorMargin/ColorVBox"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="ColorButton" type="ColorPickerButton" parent="MainVBox/TabContent/CriarTab/CriarVBox/ColorCard/ColorSection/ColorMargin/ColorVBox/ColorPreview"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "Escolher Cor"
+color = Color(0.454524, 0.454524, 0.454524, 1)
+edit_alpha = false
+
+[node name="CardsCard" type="PanelContainer" parent="MainVBox/TabContent/CriarTab/CriarVBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="CardsSection" type="VBoxContainer" parent="MainVBox/TabContent/CriarTab/CriarVBox/CardsCard"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="CardsMargin" type="MarginContainer" parent="MainVBox/TabContent/CriarTab/CriarVBox/CardsCard/CardsSection"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 20
+
+[node name="CardsVBox" type="VBoxContainer" parent="MainVBox/TabContent/CriarTab/CriarVBox/CardsCard/CardsSection/CardsMargin"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="CardsLabel" type="Label" parent="MainVBox/TabContent/CriarTab/CriarVBox/CardsCard/CardsSection/CardsMargin/CardsVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.4, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 36
+text = "Suas Cartas"
+horizontal_alignment = 1
+
+[node name="CardsHint" type="Label" parent="MainVBox/TabContent/CriarTab/CriarVBox/CardsCard/CardsSection/CardsMargin/CardsVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.55, 1)
+theme_override_font_sizes/font_size = 24
+text = "Uma carta por linha (aperte enter para começar uma nova)"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="EmojiRow" type="HBoxContainer" parent="MainVBox/TabContent/CriarTab/CriarVBox/CardsCard/CardsSection/CardsMargin/CardsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Emoji1" type="Button" parent="MainVBox/TabContent/CriarTab/CriarVBox/CardsCard/CardsSection/CardsMargin/CardsVBox/EmojiRow"]
+visible = false
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "🎉"
+flat = true
+
+[node name="Emoji2" type="Button" parent="MainVBox/TabContent/CriarTab/CriarVBox/CardsCard/CardsSection/CardsMargin/CardsVBox/EmojiRow"]
+visible = false
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "🍺"
+flat = true
+
+[node name="Emoji3" type="Button" parent="MainVBox/TabContent/CriarTab/CriarVBox/CardsCard/CardsSection/CardsMargin/CardsVBox/EmojiRow"]
+visible = false
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "🔥"
+flat = true
+
+[node name="Emoji4" type="Button" parent="MainVBox/TabContent/CriarTab/CriarVBox/CardsCard/CardsSection/CardsMargin/CardsVBox/EmojiRow"]
+visible = false
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "😂"
+flat = true
+
+[node name="Emoji5" type="Button" parent="MainVBox/TabContent/CriarTab/CriarVBox/CardsCard/CardsSection/CardsMargin/CardsVBox/EmojiRow"]
+visible = false
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "😈"
+flat = true
+
+[node name="Emoji6" type="Button" parent="MainVBox/TabContent/CriarTab/CriarVBox/CardsCard/CardsSection/CardsMargin/CardsVBox/EmojiRow"]
+visible = false
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "💋"
+flat = true
+
+[node name="CardsInput" type="TextEdit" parent="MainVBox/TabContent/CriarTab/CriarVBox/CardsCard/CardsSection/CardsMargin/CardsVBox"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+placeholder_text = "Todos os solteiros bebem
+O mais engraçado da roda bebe 2x
+Conte uma história embaraçosa"
+wrap_mode = 1
+
+[node name="CharCounter" type="Label" parent="MainVBox/TabContent/CriarTab/CriarVBox/CardsCard/CardsSection/CardsMargin/CardsVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.9, 0.3, 1)
+theme_override_font_sizes/font_size = 26
+text = "0 cartas | Maior: 0  caracteres"
+horizontal_alignment = 1
+
+[node name="SaveButton" type="Button" parent="MainVBox/TabContent/CriarTab/CriarVBox"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/hover = SubResource("StyleBoxFlat_save_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_save_btn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_save_btn")
+text = "SALVAR PACK"
+
+[node name="GerenciarTab" type="ScrollContainer" parent="MainVBox/TabContent"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GerenciarVBox" type="VBoxContainer" parent="MainVBox/TabContent/GerenciarTab"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="EmptyLabel" type="Label" parent="MainVBox/TabContent/GerenciarTab/GerenciarVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.55, 1)
+theme_override_font_sizes/font_size = 32
+text = "Nenhum pack criado ainda
+Vá para 'Criar Pack' para começar!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="MainVBox"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.75, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = SubResource("StyleBoxFlat_back_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_back_btn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_back_btn")
+text = "Voltar"
+
+[connection signal="pressed" from="MainVBox/TabButtons/TabCriar" to="." method="_on_tab_criar_pressed"]
+[connection signal="pressed" from="MainVBox/TabButtons/TabGerenciar" to="." method="_on_tab_gerenciar_pressed"]
+[connection signal="text_changed" from="MainVBox/TabContent/CriarTab/CriarVBox/NameCard/NameSection/NameMargin/NameVBox/NameInput" to="." method="_on_name_changed"]
+[connection signal="color_changed" from="MainVBox/TabContent/CriarTab/CriarVBox/ColorCard/ColorSection/ColorMargin/ColorVBox/ColorPreview/ColorButton" to="." method="_on_color_changed"]
+[connection signal="text_changed" from="MainVBox/TabContent/CriarTab/CriarVBox/CardsCard/CardsSection/CardsMargin/CardsVBox/CardsInput" to="." method="_on_cards_text_changed"]
+[connection signal="pressed" from="MainVBox/TabContent/CriarTab/CriarVBox/SaveButton" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="MainVBox/BackButton" to="." method="_on_back_pressed"]

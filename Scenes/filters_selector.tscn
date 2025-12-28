@@ -1,0 +1,236 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx4iu4f0eni8q"]
+
+[ext_resource type="Script" uid="uid://bpe6wdcx2divo" path="res://Scripts/filters_selector.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://uif4mjsdqker" path="res://Fonts/Oswald-VariableFont_wght.ttf" id="2_font"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("2_font")
+font_size = 70
+font_color = Color(1, 0.7, 0.2, 1)
+
+[node name="FiltersSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03, 0.03, 0.03, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = 80.0
+offset_right = -60.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "COMO JOGAR"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="TutorialContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="SwipeRightCard" type="PanelContainer" parent="VBoxContainer/TutorialContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TutorialContainer/SwipeRightCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 25
+
+[node name="HBox" type="HBoxContainer" parent="VBoxContainer/TutorialContainer/SwipeRightCard/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="IconBg" type="Panel" parent="VBoxContainer/TutorialContainer/SwipeRightCard/MarginContainer/HBox"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Icon" type="Label" parent="VBoxContainer/TutorialContainer/SwipeRightCard/MarginContainer/HBox/IconBg"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 55
+text = "👉"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/TutorialContainer/SwipeRightCard/MarginContainer/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="VBoxContainer/TutorialContainer/SwipeRightCard/MarginContainer/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.85, 0.4, 1)
+theme_override_font_sizes/font_size = 42
+text = "Deslizar para ESQUERDA"
+
+[node name="Desc" type="Label" parent="VBoxContainer/TutorialContainer/SwipeRightCard/MarginContainer/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 32
+text = "Avança para uma NOVA carta"
+autowrap_mode = 2
+
+[node name="SwipeLeftCard" type="PanelContainer" parent="VBoxContainer/TutorialContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TutorialContainer/SwipeLeftCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 25
+
+[node name="HBox" type="HBoxContainer" parent="VBoxContainer/TutorialContainer/SwipeLeftCard/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="IconBg" type="Panel" parent="VBoxContainer/TutorialContainer/SwipeLeftCard/MarginContainer/HBox"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Icon" type="Label" parent="VBoxContainer/TutorialContainer/SwipeLeftCard/MarginContainer/HBox/IconBg"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 55
+text = "👈"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/TutorialContainer/SwipeLeftCard/MarginContainer/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="VBoxContainer/TutorialContainer/SwipeLeftCard/MarginContainer/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.7, 1, 1)
+theme_override_font_sizes/font_size = 42
+text = "Deslizar para DIREITA"
+
+[node name="Desc" type="Label" parent="VBoxContainer/TutorialContainer/SwipeLeftCard/MarginContainer/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 32
+text = "Volta para a carta ANTERIOR"
+autowrap_mode = 2
+
+[node name="TipCard" type="PanelContainer" parent="VBoxContainer/TutorialContainer"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TutorialContainer/TipCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="HBox" type="HBoxContainer" parent="VBoxContainer/TutorialContainer/TipCard/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="IconBg" type="Panel" parent="VBoxContainer/TutorialContainer/TipCard/MarginContainer/HBox"]
+visible = false
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Icon" type="Label" parent="VBoxContainer/TutorialContainer/TipCard/MarginContainer/HBox/IconBg"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 45
+text = "💡"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/TutorialContainer/TipCard/MarginContainer/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 6
+
+[node name="Desc" type="Label" parent="VBoxContainer/TutorialContainer/TipCard/MarginContainer/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.75, 0.5, 1)
+theme_override_font_sizes/font_size = 30
+text = "Você também pode usar o botão para avançar"
+autowrap_mode = 2
+
+[node name="Spacer2" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="VoltarButton" type="Button" parent="VBoxContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(250, 90)
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Voltar"
+flat = true
+
+[node name="JogarButton" type="Button" parent="VBoxContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(250, 90)
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Jogar"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/ButtonsContainer/VoltarButton" to="." method="_on_voltar_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsContainer/JogarButton" to="." method="_on_jogar_pressed"]

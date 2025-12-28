@@ -1,0 +1,124 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6tkx1si5fmqp"]
+
+[ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Themes/Theme.tres" id="1_theme"]
+[ext_resource type="Script" uid="uid://whtjku71vdg4" path="res://Scripts/credits.gd" id="2_script"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_text"]
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_developer"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_tester"]
+font_size = 32
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_theme")
+script = ExtResource("2_script")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0253638, 0.0253638, 0.0253638, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 100.0
+offset_right = -50.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "CRÉDITOS"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="DeveloperSection" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Desenvolvido com muito amor por"
+label_settings = SubResource("LabelSettings_text")
+horizontal_alignment = 1
+
+[node name="DeveloperName" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Felipe Latchuk"
+label_settings = SubResource("LabelSettings_developer")
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="TestersSection" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Agradecimento aos Testers"
+label_settings = SubResource("LabelSettings_text")
+horizontal_alignment = 1
+
+[node name="TestersList" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Ana Livia
+Bela henning
+Cecilia Oliveira
+Eric Simões
+Francisco Rios de Almeida
+Gabriela Salmon
+Giulia Souza
+Guilherme Kaue
+Gustavo Arcoverde
+Leonardo Bertoli
+Lucas Beraldin
+Luiz Filipe Egri Filho
+Nate Armstrong
+Nicole Pastuch
+Patrick Pereira
+Silvia Riechi
+Sofia Kawazoe"
+label_settings = SubResource("LabelSettings_tester")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="VoltarButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -120.0
+offset_right = 150.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme_override_font_sizes/font_size = 50
+text = "Voltar"
+flat = true
+
+[connection signal="pressed" from="VoltarButton" to="." method="_on_voltar_pressed"]

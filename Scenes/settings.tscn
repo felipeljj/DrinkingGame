@@ -1,0 +1,331 @@
+[gd_scene load_steps=9 format=3 uid="uid://cth4lt4q634de"]
+
+[ext_resource type="Script" path="res://Scripts/settings.gd" id="1_settings"]
+[ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Themes/Theme.tres" id="2_theme"]
+[ext_resource type="FontFile" uid="uid://uif4mjsdqker" path="res://Fonts/Oswald-VariableFont_wght.ttf" id="3_font"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.06, 0.06, 0.09, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5, 0.7, 1, 0.4)
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("3_font")
+font_size = 55
+font_color = Color(0.5, 0.75, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.12, 0.12, 0.16, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3, 0.3, 0.35, 0.6)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_debug_btn"]
+bg_color = Color(0.15, 0.15, 0.2, 0.8)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.4, 0.4, 0.5, 0.5)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_close_btn"]
+bg_color = Color(0.8, 0.25, 0.25, 0.9)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.4, 0.1, 0.1, 0.4)
+shadow_size = 5
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_settings")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.85)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -620.0
+offset_right = 450.0
+offset_bottom = 620.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = 30.0
+offset_right = -35.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="TitleContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/TitleContainer"]
+layout_mode = 2
+text = "CONFIGURAÇÕES"
+label_settings = SubResource("LabelSettings_title")
+
+[node name="Separator" type="HSeparator" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SettingsVBox" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="VibrationCard" type="PanelContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="VibrationMargin" type="MarginContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/VibrationCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 20
+
+[node name="VibrationContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/VibrationCard/VibrationMargin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="VibrationIcon" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/VibrationCard/VibrationMargin/VibrationContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "📳"
+
+[node name="VibrationVBox" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/VibrationCard/VibrationMargin/VibrationContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="VibrationLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/VibrationCard/VibrationMargin/VibrationContainer/VibrationVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Vibração"
+
+[node name="VibrationDesc" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/VibrationCard/VibrationMargin/VibrationContainer/VibrationVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.55, 1)
+theme_override_font_sizes/font_size = 24
+text = "Feedback tátil"
+
+[node name="VibrationToggle" type="CheckBox" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/VibrationCard/VibrationMargin/VibrationContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "ON"
+
+[node name="RepeatCard" type="PanelContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="RepeatMargin" type="MarginContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/RepeatCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 20
+
+[node name="RepeatCardsContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/RepeatCard/RepeatMargin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="RepeatIcon" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/RepeatCard/RepeatMargin/RepeatCardsContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "🔄"
+
+[node name="RepeatVBox" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/RepeatCard/RepeatMargin/RepeatCardsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="RepeatCardsLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/RepeatCard/RepeatMargin/RepeatCardsContainer/RepeatVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Repetir Cartas"
+
+[node name="RepeatDesc" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/RepeatCard/RepeatMargin/RepeatCardsContainer/RepeatVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.55, 1)
+theme_override_font_sizes/font_size = 24
+text = "Permite ver cartas repetidas"
+
+[node name="RepeatCardsToggle" type="CheckBox" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/RepeatCard/RepeatMargin/RepeatCardsContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "ON"
+
+[node name="FontCard" type="PanelContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="FontMargin" type="MarginContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/FontCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 20
+
+[node name="FontSizeContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/FontCard/FontMargin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="FontIcon" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/FontCard/FontMargin/FontSizeContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "🔤"
+
+[node name="FontVBox" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/FontCard/FontMargin/FontSizeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="FontSizeLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/FontCard/FontMargin/FontSizeContainer/FontVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Tamanho da Fonte"
+
+[node name="FontDesc" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/FontCard/FontMargin/FontSizeContainer/FontVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.55, 1)
+theme_override_font_sizes/font_size = 24
+text = "Texto das cartas"
+
+[node name="FontSizeOption" type="OptionButton" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/FontCard/FontMargin/FontSizeContainer"]
+custom_minimum_size = Vector2(220, 60)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 36
+
+[node name="LanguageCard" type="PanelContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="LanguageMargin" type="MarginContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/LanguageCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 20
+
+[node name="LanguageContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/LanguageCard/LanguageMargin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LanguageIcon" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/LanguageCard/LanguageMargin/LanguageContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "🌍"
+
+[node name="LanguageVBox" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/LanguageCard/LanguageMargin/LanguageContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="LanguageLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/LanguageCard/LanguageMargin/LanguageContainer/LanguageVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Idioma"
+
+[node name="LanguageDesc" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/LanguageCard/LanguageMargin/LanguageContainer/LanguageVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.55, 1)
+theme_override_font_sizes/font_size = 24
+text = "Idioma do aplicativo"
+
+[node name="LanguageOption" type="OptionButton" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/LanguageCard/LanguageMargin/LanguageContainer"]
+custom_minimum_size = Vector2(220, 60)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 36
+
+[node name="Spacer" type="Control" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="DebugButton" type="Button" parent="Panel/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.65, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = SubResource("StyleBoxFlat_debug_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_debug_btn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_debug_btn")
+text = "🐛 DEBUG MENU"
+
+[node name="CloseButton" type="Button" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 38
+theme_override_styles/hover = SubResource("StyleBoxFlat_close_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_close_btn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_close_btn")
+text = "Fechar"
+
+[connection signal="toggled" from="Panel/VBoxContainer/ScrollContainer/SettingsVBox/VibrationCard/VibrationMargin/VibrationContainer/VibrationToggle" to="." method="_on_vibration_toggled"]
+[connection signal="toggled" from="Panel/VBoxContainer/ScrollContainer/SettingsVBox/RepeatCard/RepeatMargin/RepeatCardsContainer/RepeatCardsToggle" to="." method="_on_repeat_cards_toggled"]
+[connection signal="item_selected" from="Panel/VBoxContainer/ScrollContainer/SettingsVBox/FontCard/FontMargin/FontSizeContainer/FontSizeOption" to="." method="_on_font_size_selected"]
+[connection signal="item_selected" from="Panel/VBoxContainer/ScrollContainer/SettingsVBox/LanguageCard/LanguageMargin/LanguageContainer/LanguageOption" to="." method="_on_language_selected"]
+[connection signal="pressed" from="Panel/VBoxContainer/DebugButton" to="." method="_on_debug_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/CloseButton" to="." method="_on_close_pressed"]

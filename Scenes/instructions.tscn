@@ -1,0 +1,138 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwx8yp7bnj5rt"]
+
+[ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Themes/Theme.tres" id="1_a7m9k"]
+[ext_resource type="Script" uid="uid://ccwad6ajwniod" path="res://Scripts/instructions.gd" id="2_instructions"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_text"]
+font_size = 35
+
+[node name="Instructions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_a7m9k")
+script = ExtResource("2_instructions")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0253638, 0.0253638, 0.0253638, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 100.0
+offset_right = -50.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "COMO JOGAR"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="Section1" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "📱 BÁSICO"
+label_settings = SubResource("LabelSettings_text")
+horizontal_alignment = 1
+
+[node name="Text1" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "1. Selecione os packs de cartas que deseja jogar
+2. Passe o celular de mão em mão na roda
+3. Cada pessoa desliza para ver uma nova carta
+4. Cumpra o desafio ou beba!"
+label_settings = SubResource("LabelSettings_text")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Section2" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "🎮 CONTROLES"
+label_settings = SubResource("LabelSettings_text")
+horizontal_alignment = 1
+
+[node name="Text2" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "• Deslize para os lados para trocar de carta
+• Toque no botão quando não puder deslizar
+• Use o botão 'Sair' para ver o WRAPPED e voltar ao menu"
+label_settings = SubResource("LabelSettings_text")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Section3" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "🎨 PACKS DISPONÍVEIS"
+label_settings = SubResource("LabelSettings_text")
+horizontal_alignment = 1
+
+[node name="Text3" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "• CLÁSSICO: Para todos os gostos
+• NON-SENSE: Desafios bizarros e engraçados
+• WEIRDO: Para quem gosta de agir como estranhão
+• IDIOMAS: Teste suas habilidades linguísticas
+• VOTAÇÃO: Quem é mais provável de...?
+• SPICY: Conteúdo adulto (+18)
+• Packs customizados"
+label_settings = SubResource("LabelSettings_text")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Section4" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "⚠️ AVISO"
+label_settings = SubResource("LabelSettings_text")
+horizontal_alignment = 1
+
+[node name="Text4" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Este jogo é feito exclusivamente para público adulto.
+Não beba se for menor de idade.
+Beba com responsabilidade e se divirta!"
+label_settings = SubResource("LabelSettings_text")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="VoltarButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -120.0
+offset_right = 150.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme_override_font_sizes/font_size = 50
+text = "Voltar"
+flat = true
+
+[connection signal="pressed" from="VoltarButton" to="." method="_on_voltar_pressed"]

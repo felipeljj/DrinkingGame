@@ -1,0 +1,78 @@
+[gd_scene load_steps=2 format=3 uid="uid://mar4thoncfg"]
+
+[ext_resource type="Script" uid="uid://3nfw2g7vq2aa" path="res://Scripts/marathon_config.gd" id="1_mcfg"]
+
+[node name="MarathonConfig" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mcfg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.05, 1)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -470.0
+offset_top = -500.0
+offset_right = 470.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Title" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Modo Maratona"
+horizontal_alignment = 1
+
+[node name="Type" type="OptionButton" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="Value" type="OptionButton" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Cancel" type="Button" parent="Panel/VBox/Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Voltar"
+flat = true
+
+[node name="Start" type="Button" parent="Panel/VBox/Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Iniciar"
+flat = true
+
+[connection signal="item_selected" from="Panel/VBox/Type" to="." method="_on_type_item_selected"]
+[connection signal="pressed" from="Panel/VBox/Buttons/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="Panel/VBox/Buttons/Start" to="." method="_on_start_pressed"]

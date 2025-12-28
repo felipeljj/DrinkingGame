@@ -51,6 +51,7 @@ grow_vertical = 2
 theme_override_styles/panel = ExtResource("3_po1ig")
 
 [node name="CardLabel" type="Label" parent="CardPanel"]
+z_index = 1
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -59,7 +60,7 @@ anchor_bottom = 0.5
 offset_left = 98.0
 offset_top = -427.0
 offset_right = -81.0
-offset_bottom = 452.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -99,6 +100,34 @@ theme_override_font_sizes/font_size = 240
 icon = ExtResource("6_2eo1j")
 flat = true
 
+[node name="TopButtons" type="HBoxContainer" parent="."]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 17.0
+offset_right = 300.0
+offset_bottom = 110.0
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Foto" type="Button" parent="TopButtons"]
+visible = false
+custom_minimum_size = Vector2(280, 90)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 50
+text = "📷 Foto"
+flat = true
+
+[node name="Historico" type="Button" parent="TopButtons"]
+custom_minimum_size = Vector2(280, 90)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 50
+text = "Histórico"
+flat = true
+
 [node name="Sair" type="Button" parent="."]
 layout_mode = 0
 offset_left = 451.0
@@ -114,5 +143,27 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 text = "SAIR"
 flat = true
 
+[node name="ToolsButton" type="Button" parent="."]
+z_index = 300
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 76.0
+offset_top = -496.0
+offset_right = 316.0
+offset_bottom = -316.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme_override_font_sizes/font_size = 120
+text = "⚙️"
+flat = true
+
 [connection signal="pressed" from="GenerateButton" to="." method="_on_generate_button_pressed"]
+[connection signal="pressed" from="TopButtons/Foto" to="." method="_on_foto_pressed"]
+[connection signal="pressed" from="TopButtons/Historico" to="." method="_on_historico_pressed"]
 [connection signal="pressed" from="Sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="ToolsButton" to="." method="_on_tools_button_pressed"]

@@ -1,0 +1,223 @@
+[gd_scene load_steps=3 format=3 uid="uid://custpack3d"]
+
+[ext_resource type="Script" uid="uid://mjeh6bwtqjyt" path="res://Scripts/custom_pack_editor.gd" id="1_cpe"]
+[ext_resource type="FontFile" uid="uid://uif4mjsdqker" path="res://Fonts/Oswald-VariableFont_wght.ttf" id="2_font"]
+
+[node name="CustomPackEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cpe")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.05, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 39.0
+offset_top = 51.0
+offset_right = -27.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainVBox" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="TopMargin" type="Control" parent="ScrollContainer/MainVBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="ScrollContainer/MainVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 64
+text = "✨ Criar Pack"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="ScrollContainer/MainVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 28
+text = "Crie suas cartas personalizadas"
+horizontal_alignment = 1
+
+[node name="Separator1" type="Control" parent="ScrollContainer/MainVBox"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="NameSection" type="VBoxContainer" parent="ScrollContainer/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="NameLabel" type="Label" parent="ScrollContainer/MainVBox/NameSection"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 36
+text = "📝 Nome do Pack"
+horizontal_alignment = 1
+
+[node name="NameInput" type="LineEdit" parent="ScrollContainer/MainVBox/NameSection"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Ex: Festa da Gabi"
+alignment = 1
+max_length = 30
+
+[node name="ColorSection" type="VBoxContainer" parent="ScrollContainer/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ColorLabel" type="Label" parent="ScrollContainer/MainVBox/ColorSection"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 36
+text = "🎨 Cor do Pack"
+horizontal_alignment = 1
+
+[node name="ColorPreview" type="Panel" parent="ScrollContainer/MainVBox/ColorSection"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="ColorButton" type="ColorPickerButton" parent="ScrollContainer/MainVBox/ColorSection/ColorPreview"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -481.0
+offset_top = -40.0
+offset_right = 473.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "Escolher Cor"
+
+[node name="CardsSection" type="VBoxContainer" parent="ScrollContainer/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="CardsLabel" type="Label" parent="ScrollContainer/MainVBox/CardsSection"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 36
+text = "Suas Cartas"
+horizontal_alignment = 1
+
+[node name="CardsHint" type="Label" parent="ScrollContainer/MainVBox/CardsSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 24
+text = "Uma carta por linha • Use emojis • Seja criativo!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="EmojiRow" type="HBoxContainer" parent="ScrollContainer/MainVBox/CardsSection"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Emoji1" type="Button" parent="ScrollContainer/MainVBox/CardsSection/EmojiRow"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "🎉"
+flat = true
+
+[node name="Emoji2" type="Button" parent="ScrollContainer/MainVBox/CardsSection/EmojiRow"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "🍺"
+flat = true
+
+[node name="Emoji3" type="Button" parent="ScrollContainer/MainVBox/CardsSection/EmojiRow"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "🔥"
+flat = true
+
+[node name="Emoji4" type="Button" parent="ScrollContainer/MainVBox/CardsSection/EmojiRow"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "😂"
+flat = true
+
+[node name="Emoji5" type="Button" parent="ScrollContainer/MainVBox/CardsSection/EmojiRow"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "😈"
+flat = true
+
+[node name="Emoji6" type="Button" parent="ScrollContainer/MainVBox/CardsSection/EmojiRow"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "💋"
+flat = true
+
+[node name="CardsInput" type="TextEdit" parent="ScrollContainer/MainVBox/CardsSection"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+placeholder_text = "Todos os solteiros bebem
+O mais engraçado da roda bebe 2x
+Conte uma história embaraçosa"
+wrap_mode = 1
+
+[node name="CharCounter" type="Label" parent="ScrollContainer/MainVBox/CardsSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.9, 0.3, 1)
+theme_override_font_sizes/font_size = 26
+text = "0 cartas | Maior: 0 chars"
+horizontal_alignment = 1
+
+[node name="ButtonsSection" type="VBoxContainer" parent="ScrollContainer/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="SaveButton" type="Button" parent="ScrollContainer/MainVBox/ButtonsSection"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 40
+text = "💾 Salvar Pack"
+
+[node name="BackButton" type="Button" parent="ScrollContainer/MainVBox/ButtonsSection"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.3, 0.3, 1)
+theme_override_font_sizes/font_size = 32
+text = "← Voltar"
+flat = true
+
+[node name="BottomMargin" type="Control" parent="ScrollContainer/MainVBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[connection signal="text_changed" from="ScrollContainer/MainVBox/NameSection/NameInput" to="." method="_on_name_changed"]
+[connection signal="color_changed" from="ScrollContainer/MainVBox/ColorSection/ColorPreview/ColorButton" to="." method="_on_color_changed"]
+[connection signal="text_changed" from="ScrollContainer/MainVBox/CardsSection/CardsInput" to="." method="_on_cards_text_changed"]
+[connection signal="pressed" from="ScrollContainer/MainVBox/ButtonsSection/SaveButton" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="ScrollContainer/MainVBox/ButtonsSection/BackButton" to="." method="_on_back_pressed"]

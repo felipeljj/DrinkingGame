@@ -1,0 +1,263 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgjcqacqybiuw"]
+
+[ext_resource type="Script" uid="uid://dycqlxcm3revr" path="res://Scripts/compass_spinner.gd" id="1_compass"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
+bg_color = Color(0.05, 0.05, 0.08, 0.95)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.5, 0.2, 0.6)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_circle"]
+bg_color = Color(0.15, 0.15, 0.18, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.4, 0.4, 0.45, 1)
+corner_radius_top_left = 150
+corner_radius_top_right = 150
+corner_radius_bottom_right = 150
+corner_radius_bottom_left = 150
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arrow"]
+bg_color = Color(0.95, 0.2, 0.15, 1)
+
+[sub_resource type="Theme" id="Theme_button"]
+default_font_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+bg_color = Color(0.9, 0.4, 0.15, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0.5, 0.2, 0.1, 0.5)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_close"]
+bg_color = Color(0.25, 0.25, 0.3, 0.8)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="CompassSpinner" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_compass")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -480.0
+offset_right = 320.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bg")
+
+[node name="Title" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 20.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.6, 0.3, 1)
+theme_override_font_sizes/font_size = 60
+text = "ROLETA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CompassCircle" type="Panel" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -100.0
+offset_right = 160.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_circle")
+
+[node name="DirectionLabels" type="Control" parent="Background/CompassCircle"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="N" type="Label" parent="Background/CompassCircle/DirectionLabels"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 15.0
+offset_right = 20.0
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 28
+text = "N"
+horizontal_alignment = 1
+
+[node name="S" type="Label" parent="Background/CompassCircle/DirectionLabels"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -45.0
+offset_right = 20.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 28
+text = "S"
+horizontal_alignment = 1
+
+[node name="L" type="Label" parent="Background/CompassCircle/DirectionLabels"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -15.0
+offset_right = -15.0
+offset_bottom = 15.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 28
+text = "L"
+
+[node name="O" type="Label" parent="Background/CompassCircle/DirectionLabels"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -15.0
+offset_right = 45.0
+offset_bottom = 15.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 28
+text = "O"
+
+[node name="Arrow" type="Control" parent="Background/CompassCircle"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -150.0
+offset_right = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 150)
+
+[node name="ArrowBody" type="Panel" parent="Background/CompassCircle/Arrow"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_arrow")
+
+[node name="ArrowTip" type="ColorRect" parent="Background/CompassCircle/Arrow"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.0
+offset_top = -35.0
+offset_right = 22.0
+grow_horizontal = 2
+color = Color(0.95, 0.25, 0.2, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -220.0
+offset_right = 250.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ResultLabel" type="Label" parent="Background/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 45
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="SpinButton" type="Button" parent="Background/VBoxContainer"]
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_button")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+text = "GIRAR ROLETA"
+
+[node name="CloseButton" type="Button" parent="Background/VBoxContainer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_button")
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_close")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_close")
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_close")
+text = "Fechar"
+
+[connection signal="pressed" from="Background/VBoxContainer/SpinButton" to="." method="_on_spin_button_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

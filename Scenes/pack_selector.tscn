@@ -1,10 +1,10 @@
 [gd_scene load_steps=21 format=3 uid="uid://dr1tvowqan2jm"]
 
 [ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Themes/Theme.tres" id="1_77pkn"]
-[ext_resource type="Script" path="res://Scripts/pack_selector.gd" id="1_d25p4"]
+[ext_resource type="Script" uid="uid://g1l43iulgq67" path="res://Scripts/pack_selector.gd" id="1_d25p4"]
 [ext_resource type="StyleBox" uid="uid://c3pnx47o2er20" path="res://Themes/PackSelector.tres" id="3_sbd8e"]
-[ext_resource type="Texture2D" uid="uid://c0b1rd1u65qd2" path="res://icons/classicLogo.png" id="4_mdt40"]
-[ext_resource type="Texture2D" uid="uid://dfkse45bexk18" path="res://icons/Animals.png" id="5_r02ch"]
+[ext_resource type="Texture2D" uid="uid://dfyc6dt06sidg" path="res://icons/IconeClassico.svg" id="4_7y6ft"]
+[ext_resource type="Texture2D" uid="uid://c7gnsbjmhlfg5" path="res://icons/IconeNonsense.svg" id="5_7y6ft"]
 [ext_resource type="Texture2D" uid="uid://dk6cc5uqatjeg" path="res://icons/Weirdo.png" id="6_al8b3"]
 [ext_resource type="Texture2D" uid="uid://cc3m31lce8t8h" path="res://icons/languageIcon.png" id="7_hsnaw"]
 [ext_resource type="Texture2D" uid="uid://bldkpv6f0caiw" path="res://icons/arrow.png" id="8_1qa0v"]
@@ -92,7 +92,7 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 79.0
+offset_left = 50.0
 offset_top = -248.0
 offset_right = -50.0
 offset_bottom = 227.0
@@ -101,6 +101,7 @@ grow_vertical = 2
 theme = ExtResource("1_77pkn")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+clip_contents = false
 layout_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 2
@@ -115,10 +116,10 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
 mouse_filter = 2
 theme = SubResource("Theme_himfl")
-theme_override_constants/separation = 30
+theme_override_constants/separation = 20
 
 [node name="Classic" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
-custom_minimum_size = Vector2(450, 0)
+custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -151,18 +152,18 @@ mouse_filter = 1
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/ScrollContainer/HBoxContainer/Classic"]
-position = Vector2(216.04, 290)
-scale = Vector2(0.25875, 0.25875)
-texture = ExtResource("4_mdt40")
+position = Vector2(183, 272.5)
+scale = Vector2(0.359375, 0.385742)
+texture = ExtResource("4_7y6ft")
 
 [node name="description" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/Classic"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -92.96
+offset_left = -187.0
 offset_top = 72.0
-offset_right = 92.04
+offset_right = 187.0
 offset_bottom = 144.0
 grow_horizontal = 2
 text = "Clássico é classico, ne? Para todos os gostos."
@@ -171,7 +172,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="NonSense" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
-custom_minimum_size = Vector2(450, 0)
+custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -203,19 +204,19 @@ mouse_filter = 1
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/ScrollContainer/HBoxContainer/NonSense"]
-position = Vector2(216.04, 290)
-scale = Vector2(0.25875, 0.25875)
-texture = ExtResource("5_r02ch")
+position = Vector2(179.5, 281.5)
+scale = Vector2(0.329102, 0.329102)
+texture = ExtResource("5_7y6ft")
 
 [node name="description" type="Label" parent="MarginContainer/ScrollContainer/HBoxContainer/NonSense"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -209.0
+offset_left = -172.0
 offset_top = 72.0
-offset_right = 213.0
-offset_bottom = 145.0
+offset_right = 176.0
+offset_bottom = 183.0
 grow_horizontal = 2
 text = "Auto-explicativo né? Se prepara pra ver seu amigo imitando uma girafa servindo chá na russia."
 label_settings = SubResource("LabelSettings_cgleg")
@@ -224,7 +225,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Weirdo" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
-custom_minimum_size = Vector2(450, 0)
+custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -256,7 +257,7 @@ mouse_filter = 1
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/ScrollContainer/HBoxContainer/Weirdo"]
-position = Vector2(233, 285)
+position = Vector2(196, 275)
 scale = Vector2(0.25875, 0.25875)
 texture = ExtResource("6_al8b3")
 
@@ -277,7 +278,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Languages" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
-custom_minimum_size = Vector2(450, 0)
+custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -309,7 +310,7 @@ mouse_filter = 1
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/ScrollContainer/HBoxContainer/Languages"]
-position = Vector2(225, 285)
+position = Vector2(193, 282)
 scale = Vector2(0.25875, 0.25875)
 texture = ExtResource("7_hsnaw")
 
@@ -330,7 +331,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Pool" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
-custom_minimum_size = Vector2(450, 0)
+custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -362,7 +363,7 @@ mouse_filter = 1
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/ScrollContainer/HBoxContainer/Pool"]
-position = Vector2(225, 285)
+position = Vector2(193, 280)
 scale = Vector2(0.25875, 0.25875)
 texture = ExtResource("8_chd8h")
 
@@ -383,7 +384,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Spicy" type="Panel" parent="MarginContainer/ScrollContainer/HBoxContainer"]
-custom_minimum_size = Vector2(450, 0)
+custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -415,7 +416,7 @@ mouse_filter = 1
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/ScrollContainer/HBoxContainer/Spicy"]
-position = Vector2(225, 285)
+position = Vector2(190, 275)
 scale = Vector2(0.25875, 0.25875)
 texture = ExtResource("9_uoc11")
 
@@ -451,6 +452,20 @@ label_settings = SubResource("LabelSettings_gew27")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="PackCounter" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 70.0
+offset_right = 300.0
+offset_bottom = 110.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 35
+text = "1 pack selecionado"
+horizontal_alignment = 1
+
 [node name="Label2" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -462,7 +477,7 @@ offset_top = 274.925
 offset_right = 482.0
 offset_bottom = 430.885
 grow_horizontal = 2
-text = "Desde o clássico, até alguns temas mais bizarros! Customize sua jogatina como desejar!"
+text = "Selecione packs feito por nós, ou crie o seu próprio! Misture os packs como desejar!"
 label_settings = SubResource("LabelSettings_26sug")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -474,10 +489,10 @@ anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.012
-offset_left = -456.0
-offset_top = 309.075
-offset_right = 456.0
-offset_bottom = 465.035
+offset_left = -473.0
+offset_top = 196.075
+offset_right = 439.0
+offset_bottom = 352.035
 grow_horizontal = 2
 text = "Deslize para escolher seus packs."
 label_settings = SubResource("LabelSettings_26sug")
@@ -487,33 +502,46 @@ autowrap_mode = 3
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 456.0
-offset_top = 1604.67
-offset_right = 593.0
-offset_bottom = 1702.67
+offset_left = 468.0
+offset_top = 1605.0
+offset_right = 605.0
+offset_bottom = 1703.0
 focus_mode = 0
 theme_override_font_sizes/font_size = 60
 text = "Voltar"
 flat = true
 
+[node name="CriarPack" type="Button" parent="."]
+layout_mode = 0
+offset_left = 427.0
+offset_top = 559.0
+offset_right = 698.0
+offset_bottom = 649.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 28
+text = "Criar PACK +"
+flat = true
+
 [node name="Começar" type="Button" parent="."]
 layout_mode = 0
-offset_left = 335.0
-offset_top = 1276.0
-offset_right = 725.0
-offset_bottom = 1463.0
+offset_left = 339.0
+offset_top = 1352.0
+offset_right = 729.0
+offset_bottom = 1539.0
 focus_mode = 0
 theme_override_font_sizes/font_size = 120
 text = "Começar"
 flat = true
 
 [node name="Arrow" type="Sprite2D" parent="."]
-position = Vector2(35, 955)
+visible = false
+position = Vector2(37, 1232)
 scale = Vector2(0.173828, 0.173828)
 texture = ExtResource("8_1qa0v")
 
 [node name="Arrow2" type="Sprite2D" parent="."]
-position = Vector2(1047, 956)
+visible = false
+position = Vector2(1047, 1238)
 rotation = 3.14159
 scale = Vector2(0.173828, 0.173828)
 texture = ExtResource("8_1qa0v")
@@ -526,4 +554,5 @@ texture = ExtResource("8_1qa0v")
 [connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/Pool/pool" to="." method="_on_pool_pressed"]
 [connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/Spicy/spicy" to="." method="_on_spicy_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CriarPack" to="." method="_on_criar_pack_pressed"]
 [connection signal="pressed" from="Começar" to="." method="_on_começar_pressed"]

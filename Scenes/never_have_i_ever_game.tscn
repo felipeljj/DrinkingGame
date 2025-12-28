@@ -1,0 +1,205 @@
+[gd_scene load_steps=7 format=3 uid="uid://never_game"]
+
+[ext_resource type="Script" path="res://Scripts/never_have_i_ever_game.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://doer8mqlh26ij" path="res://Themes/Theme.tres" id="2_theme"]
+[ext_resource type="FontFile" uid="uid://uif4mjsdqker" path="res://Fonts/Oswald-VariableFont_wght.ttf" id="3_font"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_card"]
+font = ExtResource("3_font")
+font_size = 55
+font_color = Color(1, 1, 1, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.1, 0.2, 0.4, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.3, 0.6, 1, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+corner_detail = 20
+shadow_color = Color(0.2, 0.4, 0.8, 0.4)
+shadow_size = 20
+
+[sub_resource type="Theme" id="Theme_sair"]
+default_font_size = 100
+
+[node name="NeverHaveIEverGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.05, 0.12, 1)
+
+[node name="CardPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 44.0
+offset_top = -752.0
+offset_right = -48.0
+offset_bottom = 356.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="EuNuncaLabel" type="Label" parent="CardPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 40.0
+offset_right = 300.0
+offset_bottom = 140.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.4, 0.7, 1, 1)
+theme_override_font_sizes/font_size = 70
+text = "EU NUNCA..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardLabel" type="Label" parent="CardPanel"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -300.0
+offset_right = -60.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "...fingi estar dormindo para não atender uma ligação"
+label_settings = SubResource("LabelSettings_card")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HintLabel" type="Label" parent="CardPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -80.0
+offset_right = 200.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.5, 0.7, 0.9, 0.8)
+theme_override_font_sizes/font_size = 32
+text = "Quem já fez, bebe!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IconTop" type="Label" parent="CardPanel"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 140.0
+offset_bottom = 140.0
+theme_override_font_sizes/font_size = 70
+text = "🙈"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IconBottom" type="Label" parent="CardPanel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -140.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 3.14159
+pivot_offset = Vector2(50, 50)
+theme_override_font_sizes/font_size = 70
+text = "🙈"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GenerateButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -132.0
+offset_top = -536.0
+offset_right = 134.0
+offset_bottom = -316.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme_override_font_sizes/font_size = 80
+text = "🙈"
+flat = true
+
+[node name="TopButtons" type="HBoxContainer" parent="."]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 17.0
+offset_right = 300.0
+offset_bottom = 110.0
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Historico" type="Button" parent="TopButtons"]
+custom_minimum_size = Vector2(280, 90)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 50
+text = "Histórico"
+flat = true
+
+[node name="Sair" type="Button" parent="."]
+layout_mode = 0
+offset_left = 451.0
+offset_top = 1682.0
+offset_right = 632.0
+offset_bottom = 1839.0
+size_flags_vertical = 3
+focus_mode = 0
+theme = SubResource("Theme_sair")
+theme_override_colors/font_color = Color(0.4, 0.7, 1, 1)
+theme_override_colors/font_focus_color = Color(0.2, 0.5, 0.8, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+text = "SAIR"
+flat = true
+
+[connection signal="pressed" from="GenerateButton" to="." method="_on_generate_pressed"]
+[connection signal="pressed" from="TopButtons/Historico" to="." method="_on_historico_pressed"]
+[connection signal="pressed" from="Sair" to="." method="_on_sair_pressed"]
