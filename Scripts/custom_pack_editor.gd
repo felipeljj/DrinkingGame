@@ -1,4 +1,4 @@
-extends Control
+﻿extends Control
 
 # Referências aos nodes - Tab Criar
 @onready var criar_tab = $MainVBox/TabContent/CriarTab
@@ -496,15 +496,15 @@ func _on_save_pressed():
 	
 	# Validar
 	if pack.get("name", "") == "":
-		_show_toast(LocalizationManager.translate("custom_pack_error_no_name", "❌ Digite um nome para o pack!"), Color(0.9, 0.2, 0.2, 1))
+		_show_toast(LocalizationManager.translate("custom_pack_error_no_name", "Digite um nome para o pack!"), Color(0.9, 0.2, 0.2, 1))
 		return
 	
 	if pack.get("cards", []).size() == 0:
-		_show_toast(LocalizationManager.translate("custom_pack_error_no_cards", "❌ Adicione pelo menos 1 carta!"), Color(0.9, 0.2, 0.2, 1))
+		_show_toast(LocalizationManager.translate("custom_pack_error_no_cards", "Adicione pelo menos 1 carta!"), Color(0.9, 0.2, 0.2, 1))
 		return
 	
 	_save_pack(pack)
-	_show_toast(LocalizationManager.translate("custom_pack_saved", "✅ Pack salvo com sucesso!"), Color(0.3, 0.9, 0.3, 1))
+	_show_toast(LocalizationManager.translate("custom_pack_saved", "Pack salvo com sucesso!"), Color(0.3, 0.9, 0.3, 1))
 	
 	# Vibrar sucesso
 	UIManager.safe_vibrate(100)
@@ -581,7 +581,7 @@ func _show_delete_confirmation(pack_name: String):
 	hb.add_theme_constant_override("separation", 30)
 	
 	var cancel = Button.new()
-	cancel.text = LocalizationManager.translate("custom_pack_delete_cancel", "❌ Cancelar")
+	cancel.text = LocalizationManager.translate("custom_pack_delete_cancel", "Cancelar")
 	cancel.custom_minimum_size = Vector2(300, 80)
 	var cancel_style = StyleBoxFlat.new()
 	cancel_style.bg_color = Color(0.3, 0.3, 0.3, 1)
@@ -616,7 +616,7 @@ func _show_delete_confirmation(pack_name: String):
 		bg.queue_free()
 		panel.queue_free()
 		
-		_show_toast(LocalizationManager.translate("custom_pack_deleted", "✅ Pack deletado!"), Color(0.3, 0.9, 0.3, 1))
+		_show_toast(LocalizationManager.translate("custom_pack_deleted", "Pack deletado!"), Color(0.3, 0.9, 0.3, 1))
 		UIManager.safe_vibrate(100)
 		
 		# Atualizar lista

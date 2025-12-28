@@ -1,4 +1,4 @@
-extends Node
+﻿extends Node
 
 # Singleton para gerenciar transições e efeitos UI globais
 
@@ -276,7 +276,7 @@ func _show_debug_menu():
 	
 	var timer_btn = Button.new()
 	timer_btn.custom_minimum_size = Vector2(500, 100)
-	timer_btn.text = LocalizationManager.translate("debug_timer", "⏰ TIMER")
+	timer_btn.text = LocalizationManager.translate("debug_timer", "TIMER")
 	timer_btn.add_theme_font_size_override("font_size", 45)
 	var bg_ref_timer = weakref(modal_bg)
 	var panel_ref_timer = weakref(debug_panel)
@@ -465,7 +465,7 @@ func _ensure_fade_overlay() -> void:
 
 	var root := get_tree().root
 	if root:
-		root.add_child(_fade_layer)
+		root.call_deferred("add_child", _fade_layer)
 
 func change_scene_with_fade(scene_path: String, duration: float = 0.3):
 	_ensure_fade_overlay()

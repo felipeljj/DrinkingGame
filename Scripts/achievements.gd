@@ -1,4 +1,4 @@
-extends Control
+﻿extends Control
 
 @onready var achievements_list = $ScrollContainer/VBoxContainer/AchievementsList
 @onready var title_label = $ScrollContainer/VBoxContainer/Title
@@ -75,7 +75,7 @@ func _create_achievement_card(achievement: Dictionary):
 	
 	# Ícone
 	var icon_label = Label.new()
-	icon_label.text = achievement.get("icon", "🏆")
+	icon_label.text = achievement.get("icon", "[TROFEU]")
 	icon_label.add_theme_font_size_override("font_size", 50)
 	icon_label.custom_minimum_size = Vector2(70, 70)
 	icon_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

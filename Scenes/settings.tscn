@@ -110,7 +110,7 @@ alignment = 1
 
 [node name="Title" type="Label" parent="Panel/VBoxContainer/TitleContainer"]
 layout_mode = 2
-text = "CONFIGURAÇÕES"
+text = "CONFIGURACOES"
 label_settings = SubResource("LabelSettings_title")
 
 [node name="Separator" type="HSeparator" parent="Panel/VBoxContainer"]
@@ -145,7 +145,7 @@ theme_override_constants/separation = 20
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "📳"
+text = "[V]"
 
 [node name="VibrationVBox" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/VibrationCard/VibrationMargin/VibrationContainer"]
 layout_mode = 2
@@ -155,13 +155,13 @@ theme_override_constants/separation = 5
 [node name="VibrationLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/VibrationCard/VibrationMargin/VibrationContainer/VibrationVBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
-text = "Vibração"
+text = "Vibracao"
 
 [node name="VibrationDesc" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/VibrationCard/VibrationMargin/VibrationContainer/VibrationVBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.5, 0.5, 0.55, 1)
 theme_override_font_sizes/font_size = 24
-text = "Feedback tátil"
+text = "Feedback tatil"
 
 [node name="VibrationToggle" type="CheckBox" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/VibrationCard/VibrationMargin/VibrationContainer"]
 layout_mode = 2
@@ -188,7 +188,7 @@ theme_override_constants/separation = 20
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "🔄"
+text = "[R]"
 
 [node name="RepeatVBox" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/RepeatCard/RepeatMargin/RepeatCardsContainer"]
 layout_mode = 2
@@ -231,7 +231,7 @@ theme_override_constants/separation = 20
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "🔤"
+text = "[F]"
 
 [node name="FontVBox" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/FontCard/FontMargin/FontSizeContainer"]
 layout_mode = 2
@@ -274,7 +274,7 @@ theme_override_constants/separation = 20
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "🌍"
+text = ""
 
 [node name="LanguageVBox" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/LanguageCard/LanguageMargin/LanguageContainer"]
 layout_mode = 2
@@ -303,24 +303,23 @@ custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="DebugButton" type="Button" parent="Panel/VBoxContainer"]
-visible = false
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6, 0.6, 0.65, 1)
 theme_override_font_sizes/font_size = 32
-theme_override_styles/hover = SubResource("StyleBoxFlat_debug_btn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_debug_btn")
 theme_override_styles/normal = SubResource("StyleBoxFlat_debug_btn")
-text = "🐛 DEBUG MENU"
+theme_override_styles/pressed = SubResource("StyleBoxFlat_debug_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_debug_btn")
+text = "DEBUG MENU"
 
 [node name="CloseButton" type="Button" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 38
-theme_override_styles/hover = SubResource("StyleBoxFlat_close_btn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_close_btn")
 theme_override_styles/normal = SubResource("StyleBoxFlat_close_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_close_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_close_btn")
 text = "Fechar"
 
 [connection signal="toggled" from="Panel/VBoxContainer/ScrollContainer/SettingsVBox/VibrationCard/VibrationMargin/VibrationContainer/VibrationToggle" to="." method="_on_vibration_toggled"]

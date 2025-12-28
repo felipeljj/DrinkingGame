@@ -46,7 +46,7 @@ func _ready() -> void:
 	print("[Splash] Animação de entrada concluída, aguardando 4 segundos...")
 	
 	# Aguardar 4 segundos na tela
-	await get_tree().create_timer(4.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	
 	print("[Splash] 4 segundos passados, iniciando fade out...")
 	
@@ -66,4 +66,3 @@ func _ready() -> void:
 	
 	# Mudar para menu
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
-

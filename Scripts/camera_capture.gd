@@ -189,10 +189,10 @@ func _save_image(image: Image) -> String:
 			var err := image.save_png(full_path)
 			
 			if err == OK:
-				print("✅ Foto salva na galeria: ", full_path)
+				print("[OK] Foto salva na galeria: ", full_path)
 				return full_path
 			else:
-				print("❌ Erro ao salvar em galeria, tentando user://")
+				print("[ERRO] Erro ao salvar em galeria, tentando user://")
 		
 		# Fallback: salvar em user://
 		var user_dir := DirAccess.open("user://")
@@ -201,7 +201,7 @@ func _save_image(image: Image) -> String:
 		var user_path := "user://photos/" + filename
 		var err := image.save_png(user_path)
 		if err == OK:
-			print("✅ Foto salva em user://: ", user_path)
+			print("[OK] Foto salva em user://: ", user_path)
 			return user_path
 	
 	# Desktop/outros: salvar em user://
@@ -221,4 +221,5 @@ func _capture_screenshot() -> String:
 	if not image:
 		return ""
 	return _save_image(image)
+
 

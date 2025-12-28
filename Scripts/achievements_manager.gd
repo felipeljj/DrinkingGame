@@ -1,4 +1,4 @@
-extends Node
+﻿extends Node
 
 # Singleton para gerenciar conquistas
 
@@ -11,12 +11,12 @@ var achievement_definitions = {
 	"all_cards_completed": {
 		"name_key": "achievement_all_cards_completed_name",
 		"desc_key": "achievement_all_cards_completed_desc",
-		"icon": "🏆"
+		"icon": "[TROFEU]"
 	},
 	"pack_classico_completed": {
 		"name_key": "achievement_pack_classico_completed_name",
 		"desc_key": "achievement_pack_classico_completed_desc",
-		"icon": "🎴"
+		"icon": "[CARTAS]"
 	},
 	"pack_nonsense_completed": {
 		"name_key": "achievement_pack_nonsense_completed_name",
@@ -36,12 +36,12 @@ var achievement_definitions = {
 	"pack_pool_completed": {
 		"name_key": "achievement_pack_pool_completed_name",
 		"desc_key": "achievement_pack_pool_completed_desc",
-		"icon": "🗳️"
+		"icon": "[VOTO]"
 	},
 	"pack_spicy_completed": {
 		"name_key": "achievement_pack_spicy_completed_name",
 		"desc_key": "achievement_pack_spicy_completed_desc",
-		"icon": "🌶️"
+		"icon": "[PICANTE]"
 	},
 	"first_rare": {
 		"name_key": "achievement_first_rare_name",
@@ -157,7 +157,7 @@ func get_achievement_info(achievement_id: String) -> Dictionary:
 	# Traduzir nome e descrição usando LocalizationManager
 	info["name"] = LocalizationManager.translate(def.get("name_key", ""), def.get("name_key", "Achievement"))
 	info["description"] = LocalizationManager.translate(def.get("desc_key", ""), def.get("desc_key", ""))
-	info["icon"] = def.get("icon", "🏆")
+	info["icon"] = def.get("icon", "[TROFEU]")
 	
 	if achievements.has(achievement_id):
 		info["unlocked"] = achievements[achievement_id].get("unlocked", false)

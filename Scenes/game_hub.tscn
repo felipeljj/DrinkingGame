@@ -131,7 +131,7 @@ alignment = 1
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 theme_override_font_sizes/font_size = 80
-text = "🙈"
+text = "[?]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -179,7 +179,7 @@ alignment = 1
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 theme_override_font_sizes/font_size = 80
-text = "🃏"
+text = ""
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -227,7 +227,7 @@ alignment = 1
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 theme_override_font_sizes/font_size = 80
-text = "🔒"
+text = "[LOCKED]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -249,7 +249,7 @@ autowrap_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 40
-text = "← Voltar"
+text = "Voltar"
 flat = true
 
 [connection signal="pressed" from="VBoxContainer/GamesGrid/DrinksDeckPanel/Button" to="." method="_on_drinks_deck_pressed"]

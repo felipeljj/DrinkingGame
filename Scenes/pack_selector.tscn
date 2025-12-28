@@ -533,6 +533,17 @@ theme_override_font_sizes/font_size = 120
 text = "Começar"
 flat = true
 
+[node name="ExportPDF" type="Button" parent="."]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 1540.0
+offset_right = 729.0
+offset_bottom = 1600.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 32
+text = "Exportar PDF"
+flat = true
+
 [node name="Arrow" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(37, 1232)
@@ -556,3 +567,4 @@ texture = ExtResource("8_1qa0v")
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CriarPack" to="." method="_on_criar_pack_pressed"]
 [connection signal="pressed" from="Começar" to="." method="_on_começar_pressed"]
+[connection signal="pressed" from="ExportPDF" to="." method="_on_export_pdf_pressed"]

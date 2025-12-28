@@ -1,4 +1,4 @@
-extends Control
+﻿extends Control
 
 var pack_state = {}
 var game_mode: String = "normal"  # Modo de jogo atual
@@ -6,13 +6,13 @@ var team_config: Dictionary = {}  # Configurações dos times
 
 var card_data = {
 	"classico_raros": [
-		"🌊 CASCATA: Você começa bebendo, depois a pessoa à sua esquerda bebe, depois a próxima, e assim por diante. Você decide quando parar de beber, e só então o próximo pode parar.",
-		"👉 APONTAMENTO: Na contagem de 3, todos apontam para quem acham que mais [escolha: é mais provável de casar primeiro / tem mais segredos]. Quem receber mais votos, bebe 3 vezes.",
-		"🎉 DESAFIO COLETIVO: Todos da roda devem fazer 10 agachamentos JUNTOS e sincronizados. Quem errar ou desistir, bebe 2 vezes.",
-		"📜 REGRA NOVA: Crie uma regra que vale até o final do jogo (ex: 'Proibido falar nomes', 'Sempre beber com a mão esquerda'). Quem quebrar, bebe!",
-		"[DICE] 🎲 DADO DA SORTE: Role o dado! Resultado PAR = escolha alguém para beber o dobro. ÍMPAR = você bebe o resultado.",
-		"⚡ TWIST CARD: TUDO INVERTE! Nas próximas 3 cartas, quem DEVERIA beber NÃO bebe, e todos os outros bebem no lugar.",
-		"⏰ DESAFIO RELÂMPAGO: Em 15 segundos, todos devem dizer o nome de uma capital. Quem repetir ou não falar, bebe!",
+		"CASCATA: Você começa bebendo, depois a pessoa à sua esquerda bebe, depois a próxima, e assim por diante. Você decide quando parar de beber, e só então o próximo pode parar.",
+		"APONTAMENTO: Na contagem de 3, todos apontam para quem acham que mais [escolha: é mais provável de casar primeiro / tem mais segredos]. Quem receber mais votos, bebe 3 vezes.",
+		"DESAFIO COLETIVO: Todos da roda devem fazer 10 agachamentos JUNTOS e sincronizados. Quem errar ou desistir, bebe 2 vezes.",
+		"REGRA NOVA: Crie uma regra que vale até o final do jogo (ex: 'Proibido falar nomes', 'Sempre beber com a mão esquerda'). Quem quebrar, bebe!",
+		"[DICE] DADO DA SORTE: Role o dado! Resultado PAR = escolha alguém para beber o dobro. ÍMPAR = você bebe o resultado.",
+		"TWIST CARD: TUDO INVERTE! Nas próximas 3 cartas, quem DEVERIA beber NÃO bebe, e todos os outros bebem no lugar.",
+		"DESAFIO RELÂMPAGO: Em 15 segundos, todos devem dizer o nome de uma capital. Quem repetir ou não falar, bebe!",
 		"[COMPASS] TROCA DE COPOS: Gire a roleta. Você deve trocar seu copo (e o conteúdo dele) com a pessoa apontada. Se um copo estiver cheio e o outro vazio... azar.",
 		"[DICE] O DADO MESTRE: Role o dado. O número que sair é o seu Número Mestre até sua próxima rodada. Toda vez que qualquer jogador rolar esse número em qualquer dado, você pode mandar alguém (à sua escolha) beber 3 goles.",
 		" O DITADOR. Até sua próxima rodada, você é o Ditador. Você pode vetar qualquer ação, criar uma regra temporária ou mandar alguém beber (limite de 3 ordens).",
@@ -77,9 +77,9 @@ var card_data = {
 		"[DICE] O Dado Vidente: Antes de rolar, adivinhe se o número será 'Alto' (4,5,6) ou 'Baixo' (1,2,3). Se acertar, distribua 3. Se errar, beba 3."
 	],
 	"nonsense_raros": [
-		"🔄 TROCA LOUCA: Todos na roda devem trocar de lugar AGORA! Último a sentar bebe 2 vezes e deve imitar um golfinho por 1 rodada.",
-		"[COMPASS] 🎯 ROLETA DA ZOEIRA: Gire a roleta! A pessoa apontada deve fazer uma imitação de alguém da roda. Se a roda adivinhar quem é em 30s, a pessoa imitada bebe. Se não, quem imitou bebe.",
-		"🌀 REALIDADE ALTERNATIVA: Até a próxima rodada, você vive em câmera lenta. Tudo que fizer deve ser devagar. Se esquecer, bebe e todos riem de você.",
+		"TROCA LOUCA: Todos na roda devem trocar de lugar AGORA! Último a sentar bebe 2 vezes e deve imitar um golfinho por 1 rodada.",
+		"[COMPASS] ROLETA DA ZOEIRA: Gire a roleta! A pessoa apontada deve fazer uma imitação de alguém da roda. Se a roda adivinhar quem é em 30s, a pessoa imitada bebe. Se não, quem imitou bebe.",
+		"REALIDADE ALTERNATIVA: Até a próxima rodada, você vive em câmera lenta. Tudo que fizer deve ser devagar. Se esquecer, bebe e todos riem de você.",
 		"[DICE] 🎲Role o dado! 1-2: Você vira um ET e só fala 'bip bop'. 3-4: Você é um robô com movimentos travados. 5-6: Você é um passarinho. Vale por 1 rodada!",
 		"MUNDO OPOSTO. Por 2 rodadas completas, TUDO é o oposto. 'Sim' é 'não', 'beber' é 'distribuir', 'esquerda' é 'direita'. Quem se confundir, bebe 2.",
 		" [DICE] O DADO ATOR: Role o dado. 1: Câmera Lenta. 2: Câmera Rápida (x2). 3: Mudo. 4: Ópera (cante tudo). 5: Robô. 6: Dinossauro. Atue assim até sua próxima rodada.",
@@ -115,10 +115,10 @@ var card_data = {
 
 	],
 	"weirdo_raros": [
-		"👽 INVASÃO ALIENÍGENA: [COMPASS] Use a roleta! A pessoa apontada foi abduzida. Ela deve falar em uma 'língua alienígena' por 2 rodadas. Se falar português, bebe!",
-		"🎭 PERSONALIDADE ALEATÓRIA: [DICE] Role o dado! 1-2: Você é um bebê chorão. 3-4: Você é um idoso ranzinza. 5-6: Você é um esquerdo macho performático. Atue assim até alguém te fazer rir. Se rir, bebe!",
-		"🤪 CARTA LOUCURA: Todos devem sussurrar uma ação aleatória no ouvido da pessoa à direita. Na contagem de 3, TODOS fazem a ação que ouviram. Quem não fizer, bebe 3 vezes.",
-		"⏰ DESAFIO DA ESTÁTUA: Fique congelado como estátua por 20 segundos. Qualquer movimento = 1 gole. ",
+		"INVASÃO ALIENÍGENA: [COMPASS] Use a roleta! A pessoa apontada foi abduzida. Ela deve falar em uma 'língua alienígena' por 2 rodadas. Se falar português, bebe!",
+		"PERSONALIDADE ALEATÓRIA: [DICE] Role o dado! 1-2: Você é um bebê chorão. 3-4: Você é um idoso ranzinza. 5-6: Você é um esquerdo macho performático. Atue assim até alguém te fazer rir. Se rir, bebe!",
+		"CARTA LOUCURA: Todos devem sussurrar uma ação aleatória no ouvido da pessoa à direita. Na contagem de 3, TODOS fazem a ação que ouviram. Quem não fizer, bebe 3 vezes.",
+		"DESAFIO DA ESTÁTUA: Fique congelado como estátua por 20 segundos. Qualquer movimento = 1 gole. ",
 		"O CONTRATO: Escolha 2 jogadores (não pode ser você). Eles devem dar as mãos. Eles estão presos. Eles só podem soltar as mãos se ambos concordarem em beber 3 goles cada. Vale até um deles beber por outro motivo.",
 		"A SEITA. Inicie sua seita. Crie um nome (ex: 'Filhos do Copo Vazio') e um gesto. A qualquer momento, você pode fazer o gesto. O último da roda a repetir o gesto, bebe 2. Vale até o fim do jogo.",
 		"[DICE] DADO DA POSSESSÃO: Role o dado. 1-3: O jogador à sua direita te 'possui' e escolhe uma personalidade para você (ex: 'criança mimada') por 2 rodadas. 4-6: Você 'possui' o jogador à sua esquerda.",
@@ -143,12 +143,12 @@ var card_data = {
 
 	],
 	"languages_raros": [
-		"🌍 TORRE DE BABEL: [COMPASS] Gire a roleta! Cada pessoa apontada deve falar uma frase em idioma diferente (português não vale!). Quem não souber, bebe 2 vezes.",
-		"📞 TELEFONE SEM FIO GLOBAL: Sussurre uma frase em inglês no ouvido da pessoa à esquerda. Ela traduz e passa adiante em outro idioma. No final, compare com o original. Se mudou muito, todos bebem!",
-		"[DICE] 🎲 DADO POLIGLOTA: Role o dado! Conte uma história de 30 segundos misturando ESSE número de idiomas diferentes. Não conseguiu? Bebe o número do dado.",
-		"🗣️ KARAOKÊ INTERNACIONAL: Cante 30 segundos de uma música famosa em um sotaque estrangeiro escolhido pela roda. Se a roda rir demais, todos bebem. Se não rir, você bebe.",
-		"⏰ DESAFIO RÁPIDO: 30 segundos para todos dizerem 'EU TE AMO' em idiomas diferentes. Quem repetir ou não conseguir, bebe!",
-		"🎭 ATUAÇÃO MUDA: Sem falar NADA, atue uma cena famosa de filme. Roda tem 40s para adivinhar. Acertou? Você bebe. Errou? Todos bebem."
+		"TORRE DE BABEL: [COMPASS] Gire a roleta! Cada pessoa apontada deve falar uma frase em idioma diferente (português não vale!). Quem não souber, bebe 2 vezes.",
+		"TELEFONE SEM FIO GLOBAL: Sussurre uma frase em inglês no ouvido da pessoa à esquerda. Ela traduz e passa adiante em outro idioma. No final, compare com o original. Se mudou muito, todos bebem!",
+		"[DICE] DADO POLIGLOTA: Role o dado! Conte uma história de 30 segundos misturando ESSE número de idiomas diferentes. Não conseguiu? Bebe o número do dado.",
+		"KARAOKÊ INTERNACIONAL: Cante 30 segundos de uma música famosa em um sotaque estrangeiro escolhido pela roda. Se a roda rir demais, todos bebem. Se não rir, você bebe.",
+		"DESAFIO RÁPIDO: 30 segundos para todos dizerem 'EU TE AMO' em idiomas diferentes. Quem repetir ou não conseguir, bebe!",
+		"ATUAÇÃO MUDA: Sem falar NADA, atue uma cena famosa de filme. Roda tem 40s para adivinhar. Acertou? Você bebe. Errou? Todos bebem."
 	],
 	"languages": [
 		"Cante uma música em chinês. Todos bebem e cantam juntos",
@@ -192,9 +192,9 @@ var card_data = {
 		" VOTO CEGO. Todos fecham os olhos. Você faz uma pergunta 'Quem é o mais...'. Na contagem de 3, todos apontam. Ao abrir os olhos, quem tiver mais dedos apontados para si, bebe 4.",
 	],
 	"pool_raros": [
-		"[DICE] 🎲 VOTAÇÃO: Role o dado! Esse é o número de rodadas de votação que farão AGORA. Temas livres! Quem for mais votado em cada rodada, bebe.",
-		"⚖️ TRIBUNAL DO CAOS: Votem na pessoa 'mais provável de sobreviver a um apocalipse zumbi'. Quem ganhar escolhe 2 pessoas para 'morrer' (beber 2 vezes cada).",
-		"💫 INVERSÃO TOTAL: Votem em 'quem é MENOS provável de [tema à escolha]'. Dessa vez, quem receber MENOS votos (mais normal) é quem bebe!"
+		"[DICE] VOTAÇÃO: Role o dado! Esse é o número de rodadas de votação que farão AGORA. Temas livres! Quem for mais votado em cada rodada, bebe.",
+		"TRIBUNAL DO CAOS: Votem na pessoa 'mais provável de sobreviver a um apocalipse zumbi'. Quem ganhar escolhe 2 pessoas para 'morrer' (beber 2 vezes cada).",
+		"INVERSÃO TOTAL: Votem em 'quem é MENOS provável de [tema à escolha]'. Dessa vez, quem receber MENOS votos (mais normal) é quem bebe!"
 	],
 	
 	"spicy": [
@@ -230,10 +230,10 @@ var card_data = {
 		"Posição Favorita: Descreva sua posição sexual favorita usando apenas mímica. Se o grupo não adivinhar, beba 2."
 	],
 	"spicy_raros": [
-		"[COMPASS] 💋 BEIJO DA ROLETA: Gire a roleta! A pessoa apontada e você devem dar um beijo. Tipo do beijo: a roda decide (selinho, francês, esquimó, etc). Recusou? Ambos bebem 4 vezes.",
-		"[DICE] 🎲 VERDADE OU CONSEQUÊNCIA EXTREMO: Role o dado! 1-3: Responda uma verdade MUITO picante. 4-6: Cumpra uma consequência escolhida pelo grupo. Recusou? Bebe o dobro do número e fica de fora por 2 rodadas.",
-		"💏 TROCA DE CASAIS: Se houver casais na roda, troquem os pares por 3 rodadas! Solteiros escolhem duplas. Ações em dupla valem nesse período.",
-		"⏰ 7 MINUTOS NO CÉU: Você e a pessoa mais votada pela roda vão para outro cômodo por 45 segundos. O que acontecer lá, fica lá... Ou não. Roda decide se contam o que rolou. Recusaram? Bebem 5 vezes CADA."
+		"[COMPASS] BEIJO DA ROLETA: Gire a roleta! A pessoa apontada e você devem dar um beijo. Tipo do beijo: a roda decide (selinho, francês, esquimó, etc). Recusou? Ambos bebem 4 vezes.",
+		"[DICE] VERDADE OU CONSEQUÊNCIA EXTREMO: Role o dado! 1-3: Responda uma verdade MUITO picante. 4-6: Cumpra uma consequência escolhida pelo grupo. Recusou? Bebe o dobro do número e fica de fora por 2 rodadas.",
+		"TROCA DE CASAIS: Se houver casais na roda, troquem os pares por 3 rodadas! Solteiros escolhem duplas. Ações em dupla valem nesse período.",
+		"7 MINUTOS NO CÉU: Você e a pessoa mais votada pela roda vão para outro cômodo por 45 segundos. O que acontecer lá, fica lá... Ou não. Roda decide se contam o que rolou. Recusaram? Bebem 5 vezes CADA."
 	]
 }
 
@@ -1255,10 +1255,10 @@ func _on_tools_button_pressed() -> void:
 		"dice":
 			print("Tentando abrir dado...")
 			if dice_roller and is_instance_valid(dice_roller):
-				print("✅ Dice roller encontrado, chamando show_dice()")
+				print("[OK] Dice roller encontrado, chamando show_dice()")
 				dice_roller.show_dice()
 			else:
-				print("❌ Dice roller não encontrado ou inválido")
+				print("[ERRO] Dice roller não encontrado ou inválido")
 				# Tentar criar se não existir
 				if not dice_roller:
 					var dice_scene = load("res://Scenes/dice_roller.tscn")
@@ -1269,10 +1269,10 @@ func _on_tools_button_pressed() -> void:
 		"compass":
 			print("Tentando abrir compasso...")
 			if compass_spinner and is_instance_valid(compass_spinner):
-				print("✅ Compass spinner encontrado, chamando show_compass()")
+				print("[OK] Compass spinner encontrado, chamando show_compass()")
 				compass_spinner.show_compass()
 			else:
-				print("❌ Compass spinner não encontrado ou inválido")
+				print("[ERRO] Compass spinner não encontrado ou inválido")
 				# Tentar criar se não existir
 				if not compass_spinner:
 					var compass_scene = load("res://Scenes/compass_spinner.tscn")
@@ -1631,7 +1631,7 @@ func _show_history_modal():
 	vbox.add_child(title_container)
 	
 	var title_icon = Label.new()
-	title_icon.text = "📜"
+	title_icon.text = ""
 	title_icon.add_theme_font_size_override("font_size", 50)
 	title_container.add_child(title_icon)
 	
@@ -1847,7 +1847,7 @@ func _capture_photo():
 	
 	# Tentar usar câmera do dispositivo se disponível
 	if feed_count > 0:
-		print("✅ Abrindo câmera...")
+		print("[OK] Abrindo câmera...")
 		var capture_scene = load("res://Scenes/camera_capture.tscn")
 		if capture_scene:
 			var overlay = capture_scene.instantiate()
@@ -1945,14 +1945,14 @@ func _show_wrapped_report():
 	# Carregar cena de wrapped e passar dados
 	var scene = load("res://Scenes/wrapped.tscn")
 	if not scene:
-		print("❌ Erro ao carregar wrapped.tscn")
+		print("[ERRO] Erro ao carregar wrapped.tscn")
 		return
 	var wrapped = scene.instantiate()
 	wrapped.set("card_history", card_history)
 	wrapped.set("session_photos", session_photos)
 	wrapped.set("session_start_time", session_start_time)
 	
-	print("✅ Passando ", session_photos.size(), " fotos para o wrapped")
+	print("[OK] Passando ", session_photos.size(), " fotos para o wrapped")
 	
 	var current = get_tree().current_scene
 	get_tree().root.add_child(wrapped)
@@ -2085,7 +2085,7 @@ func _show_achievement_notification(achievement_id: String):
 	
 	# Criar notificação visual
 	var notification = Label.new()
-	notification.text = achievement_info.get("icon", "🏆") + " " + achievement_info.get("name", "Conquista!")
+	notification.text = achievement_info.get("icon", "[TROFEU]") + " " + achievement_info.get("name", "Conquista!")
 	
 	var settings = LabelSettings.new()
 	settings.font_size = 50

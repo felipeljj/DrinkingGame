@@ -285,6 +285,12 @@ func _generate_room_code() -> String:
 	return code
 
 func get_player_list() -> Array:
+	# Se tiver ordem customizada definida (modo local), usar essa ordem
+	var custom_order = game_settings.get("players_order", [])
+	if custom_order.size() > 0:
+		return custom_order
+	
+	# Ordem padrão
 	var list = []
 	for peer_id in players:
 		var info = players[peer_id].duplicate()
@@ -297,3 +303,80 @@ func get_my_peer_id() -> int:
 
 func is_server() -> bool:
 	return multiplayer.is_server()
+
+# ============================================
+# SISTEMA DE BOTS (DEBUG)
+# ============================================
+
+const BOT_NAMES = [
+	"🤖 Bot Alpha",
+	"🤖 Bot Beta", 
+	"🤖 Bot Gamma",
+	"🤖 Bot Delta",
+	"🤖 Bot Epsilon",
+	"🤖 Bot Zeta",
+	"🤖 Bot Eta",
+	"🤖 Bot Theta",
+	"🤖 Bot Iota",
+	"🤖 Bot Kappa"
+]
+
+var bot_counter: int = 0
+var bots: Dictionary = {}  # fake_peer_id -> bot_info
+
+func add_bot() -> bool:
+	if not is_host:
+		return false
+	
+	if players.size() + bots.size() >= MAX_PLAYERS:
+		return false
+	
+	# Gerar ID fake para o bot (negativo para não conflitar com peers reais)
+	var bot_id = -(bot_counter + 1)
+	bot_counter += 1
+	
+	var bot_name = BOT_NAMES[bot_counter % BOT_NAMES.size()] if bot_counter <= BOT_NAMES.size() else "🤖 Bot " + str(bot_counter)
+	
+	bots[bot_id] = {
+		"name": bot_name,
+		"score": 0,
+		"is_host": false,
+		"is_bot": true
+	}
+	
+	# Adicionar bot à lista de jogadores
+	players[bot_id] = bots[bot_id]
+	
+	player_list_updated.emit(get_player_list())
+	return true
+
+func remove_bot() -> bool:
+	if not is_host:
+		return false
+	
+	if bots.is_empty():
+		return false
+	
+	# Remover o último bot adicionado
+	var bot_id = bots.keys().back()
+	bots.erase(bot_id)
+	players.erase(bot_id)
+	
+	player_list_updated.emit(get_player_list())
+	return true
+
+func get_bot_ids() -> Array:
+	return bots.keys()
+
+func is_bot(peer_id: int) -> bool:
+	return bots.has(peer_id)
+
+func get_bots_count() -> int:
+	return bots.size()
+
+func clear_bots():
+	for bot_id in bots.keys():
+		players.erase(bot_id)
+	bots.clear()
+	bot_counter = 0
+	player_list_updated.emit(get_player_list())

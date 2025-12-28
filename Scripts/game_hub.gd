@@ -1,4 +1,4 @@
-extends Control
+﻿extends Control
 
 @onready var title = $VBoxContainer/Title
 @onready var subtitle = $VBoxContainer/Subtitle
@@ -38,7 +38,7 @@ func _update_ui_texts():
 	if subtitle:
 		subtitle.text = LocalizationManager.translate("hub_subtitle", "Toque em um jogo para começar!")
 	if back_button:
-		back_button.text = LocalizationManager.translate("hub_back", "← Voltar")
+		back_button.text = LocalizationManager.translate("hub_back", "Voltar")
 	
 	# Textos dos jogos
 	var drinks_name = drinks_deck_panel.get_node("VBox/Name")
@@ -54,6 +54,32 @@ func _update_ui_texts():
 		never_name.text = LocalizationManager.translate("game_never_have_i_ever", "EU NUNCA")
 	if never_desc:
 		never_desc.text = LocalizationManager.translate("game_never_have_i_ever_desc", "Quem já fez, bebe!")
+
+	# Absurd Cards
+	if absurd_cards_panel:
+		var absurd_name = absurd_cards_panel.get_node_or_null("VBox/Name")
+		var absurd_desc = absurd_cards_panel.get_node_or_null("VBox/Description")
+		if absurd_name:
+			absurd_name.text = LocalizationManager.translate("game_absurd_cards", "CARTAS ABSURDAS")
+		if absurd_desc:
+			absurd_desc.text = LocalizationManager.translate("game_absurd_cards_desc", "O jogo mais politicamente incorreto")
+
+	# Coming Soon / Locked
+	var coming_soon_panel = get_node_or_null("VBoxContainer/GamesGrid/ComingSoon2")
+	if coming_soon_panel:
+		var locked_label = coming_soon_panel.get_node_or_null("VBox/LockedLabel") # Assuming it might be different or same
+		var name_label = coming_soon_panel.get_node_or_null("VBox/Name")
+		var desc_label = coming_soon_panel.get_node_or_null("VBox/Description")
+		
+		# Se tiver label de Locked explícito
+		if locked_label:
+			locked_label.text = "[" + LocalizationManager.translate("pack_locked", "BLOQUEADO") + "]"
+			
+		# Se usar Name para mostrar "Em Breve"
+		if name_label:
+			name_label.text = LocalizationManager.translate("hub_coming_soon", "EM BREVE")
+		if desc_label:
+			desc_label.text = LocalizationManager.translate("hub_coming_soon_desc", "Novo jogo em breve!")
 
 func _apply_panel_styles():
 	# Estilo do Drink's Deck (Laranja)
@@ -112,12 +138,17 @@ func _setup_panel_hover(panel: Control, color: Color):
 	if not button:
 		return
 	
+	# Definir pivot no centro para que o scale não invada outros slots
+	panel.pivot_offset = panel.size / 2
+	
 	button.mouse_entered.connect(func():
 		if not is_instance_valid(panel) or not panel.is_inside_tree():
 			return
+		# Atualizar pivot caso o tamanho tenha mudado
+		panel.pivot_offset = panel.size / 2
 		var tween = panel.create_tween()
 		if tween:
-			tween.tween_property(panel, "scale", Vector2(1.05, 1.05), 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+			tween.tween_property(panel, "scale", Vector2(1.03, 1.03), 0.15).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	)
 	
 	button.mouse_exited.connect(func():
@@ -125,7 +156,7 @@ func _setup_panel_hover(panel: Control, color: Color):
 			return
 		var tween = panel.create_tween()
 		if tween:
-			tween.tween_property(panel, "scale", Vector2.ONE, 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+			tween.tween_property(panel, "scale", Vector2.ONE, 0.15).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	)
 
 func _animate_entrance():
@@ -238,7 +269,7 @@ func _show_age_warning():
 	
 	# Ícone de aviso
 	var icon = Label.new()
-	icon.text = "⚠️"
+	icon.text = "[AVISO]"
 	icon.add_theme_font_size_override("font_size", 130)
 	icon.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	icon.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -399,6 +430,13 @@ func _on_absurd_cards_pressed() -> void:
 	_show_content_warning()
 
 func _show_content_warning():
+	# Verificar se deve pular o aviso
+	var config = ConfigFile.new()
+	if config.load("user://settings.cfg") == OK:
+		if config.get_value("content_warning", "skip", false):
+			UIManager.change_scene_with_fade("res://Scenes/absurd_cards_lobby.tscn")
+			return
+	
 	# Criar overlay escuro
 	var overlay = ColorRect.new()
 	overlay.name = "ContentWarningOverlay"
@@ -424,9 +462,9 @@ func _show_content_warning():
 	style.border_color = Color(1, 1, 1, 1)
 	popup.add_theme_stylebox_override("panel", style)
 	
-	# Tamanho
-	var popup_width = min(viewport_size.x * 0.92, 950)
-	var popup_height = 750
+	# Tamanho - ajustado para caber na tela
+	var popup_width = min(viewport_size.x * 0.9, 800)
+	var popup_height = min(viewport_size.y * 0.85, 900)
 	popup.size = Vector2(popup_width, popup_height)
 	popup.position = Vector2((viewport_size.x - popup_width) / 2, (viewport_size.y - popup_height) / 2)
 	
@@ -435,26 +473,26 @@ func _show_content_warning():
 	# Container vertical
 	var vbox = VBoxContainer.new()
 	vbox.set_anchors_preset(Control.PRESET_FULL_RECT)
-	vbox.offset_left = 40
-	vbox.offset_top = 30
-	vbox.offset_right = -40
-	vbox.offset_bottom = -30
-	vbox.add_theme_constant_override("separation", 20)
+	vbox.offset_left = 30
+	vbox.offset_top = 20
+	vbox.offset_right = -30
+	vbox.offset_bottom = -20
+	vbox.add_theme_constant_override("separation", 15)
 	popup.add_child(vbox)
 	
 	# Ícone de aviso
 	var icon = Label.new()
-	icon.text = "⚠️"
-	icon.add_theme_font_size_override("font_size", 100)
+	icon.text = "[AVISO]"
+	icon.add_theme_font_size_override("font_size", 80)
 	icon.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	icon.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	vbox.add_child(icon)
 	
 	# Título
 	var title_label = Label.new()
-	title_label.text = "AVISO DE CONTEÚDO"
+	title_label.text = LocalizationManager.translate("content_warning_title", "AVISO DE CONTEÚDO")
 	var title_settings = LabelSettings.new()
-	title_settings.font_size = 55
+	title_settings.font_size = 44
 	title_settings.font_color = Color(1, 1, 1, 1)
 	title_settings.font = load("res://Fonts/Oswald-VariableFont_wght.ttf")
 	title_label.label_settings = title_settings
@@ -464,9 +502,9 @@ func _show_content_warning():
 	
 	# Mensagem
 	var message = Label.new()
-	message.text = "Este jogo contém conteúdo PESADO e pode ser ofensivo para alguns jogadores.\n\nRecomendado jogar apenas com pessoas que você tem intimidade.\n\nConteúdo para MAIORES DE 18 ANOS."
+	message.text = LocalizationManager.translate("content_warning_message", "Este jogo contém conteúdo PESADO...")
 	var msg_settings = LabelSettings.new()
-	msg_settings.font_size = 32
+	msg_settings.font_size = 28
 	message.label_settings = msg_settings
 	message.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	message.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -476,26 +514,53 @@ func _show_content_warning():
 	# Spacer
 	var spacer = Control.new()
 	spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	spacer.custom_minimum_size = Vector2(0, 10)
 	vbox.add_child(spacer)
+	
+	# Checkbox customizado com ícone visível (igual ao popup de idade)
+	var checkbox_container = HBoxContainer.new()
+	checkbox_container.alignment = BoxContainer.ALIGNMENT_CENTER
+	checkbox_container.add_theme_constant_override("separation", 15)
+	vbox.add_child(checkbox_container)
+	
+	# Ícone da caixinha (toggle visual)
+	var checkbox_icon = Button.new()
+	checkbox_icon.name = "CheckboxIcon"
+	checkbox_icon.text = "☐"
+	checkbox_icon.add_theme_font_size_override("font_size", 50)
+	checkbox_icon.flat = true
+	checkbox_icon.toggle_mode = true
+	checkbox_icon.custom_minimum_size = Vector2(60, 60)
+	checkbox_container.add_child(checkbox_icon)
+	
+	var checkbox_label = Label.new()
+	checkbox_label.text = LocalizationManager.translate("content_warning_dont_show", "Não mostrar novamente")
+	checkbox_label.add_theme_font_size_override("font_size", 30)
+	checkbox_container.add_child(checkbox_label)
+	
+	# Toggle do checkbox
+	checkbox_icon.toggled.connect(func(pressed):
+		checkbox_icon.text = "☑" if pressed else "☐"
+	)
 	
 	# Botões
 	var btn_container = VBoxContainer.new()
-	btn_container.add_theme_constant_override("separation", 15)
+	btn_container.add_theme_constant_override("separation", 12)
 	btn_container.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	vbox.add_child(btn_container)
 	
 	# Botão Confirmar (branco)
 	var confirm_btn = Button.new()
-	confirm_btn.text = "✓  Entendi e quero jogar"
-	confirm_btn.add_theme_font_size_override("font_size", 38)
-	confirm_btn.custom_minimum_size = Vector2(0, 85)
+	confirm_btn.text = LocalizationManager.translate("content_warning_confirm", "✓  Entendi e quero jogar")
+	confirm_btn.add_theme_font_size_override("font_size", 32)
+	confirm_btn.custom_minimum_size = Vector2(0, 70)
 	confirm_btn.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	
 	var confirm_style = StyleBoxFlat.new()
 	confirm_style.bg_color = Color(1, 1, 1, 1)
 	confirm_style.set_corner_radius_all(20)
-	confirm_style.content_margin_left = 50
-	confirm_style.content_margin_right = 50
+	confirm_style.content_margin_left = 40
+	confirm_style.content_margin_right = 40
 	confirm_btn.add_theme_stylebox_override("normal", confirm_style)
 	confirm_btn.add_theme_stylebox_override("hover", confirm_style)
 	confirm_btn.add_theme_stylebox_override("pressed", confirm_style)
@@ -504,6 +569,12 @@ func _show_content_warning():
 	confirm_btn.add_theme_color_override("font_pressed_color", Color(0.3, 0.3, 0.3, 1))
 	
 	confirm_btn.pressed.connect(func():
+		# Salvar preferência se checkbox marcado
+		if checkbox_icon.button_pressed:
+			var cfg = ConfigFile.new()
+			cfg.load("user://settings.cfg")
+			cfg.set_value("content_warning", "skip", true)
+			cfg.save("user://settings.cfg")
 		overlay.queue_free()
 		popup.queue_free()
 		UIManager.change_scene_with_fade("res://Scenes/absurd_cards_lobby.tscn")
@@ -512,9 +583,9 @@ func _show_content_warning():
 	
 	# Botão Cancelar
 	var cancel_btn = Button.new()
-	cancel_btn.text = "Voltar"
-	cancel_btn.add_theme_font_size_override("font_size", 36)
-	cancel_btn.custom_minimum_size = Vector2(0, 60)
+	cancel_btn.text = LocalizationManager.translate("content_warning_cancel", "Voltar")
+	cancel_btn.add_theme_font_size_override("font_size", 30)
+	cancel_btn.custom_minimum_size = Vector2(0, 50)
 	cancel_btn.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	cancel_btn.flat = true
 	cancel_btn.pressed.connect(func():

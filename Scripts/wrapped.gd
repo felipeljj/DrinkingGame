@@ -1,4 +1,4 @@
-extends Control
+﻿extends Control
 
 var card_history: Array = []
 var session_photos: Array = []
@@ -272,7 +272,7 @@ func _create_top_pack_card():
 	margin.add_child(vbox)
 	
 	var emoji = Label.new()
-	emoji.text = "🏆"
+	emoji.text = "[TROFEU]"
 	emoji.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	emoji.add_theme_font_size_override("font_size", 100)
 	vbox.add_child(emoji)
@@ -482,7 +482,7 @@ func _create_play_time_card():
 	margin.add_child(vbox)
 	
 	var emoji = Label.new()
-	emoji.text = "⏰"
+	emoji.text = "[TEMPO]"
 	emoji.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	emoji.add_theme_font_size_override("font_size", 100)
 	vbox.add_child(emoji)
@@ -543,7 +543,7 @@ func _create_top_category_card():
 	margin.add_child(vbox)
 	
 	var emoji = Label.new()
-	emoji.text = "⭐"
+	emoji.text = "[ESTRELA]"
 	emoji.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	emoji.add_theme_font_size_override("font_size", 100)
 	vbox.add_child(emoji)

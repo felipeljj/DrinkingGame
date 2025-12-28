@@ -85,7 +85,7 @@ custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.3, 0.3, 1)
 theme_override_font_sizes/font_size = 40
-text = "← Voltar"
+text = " Voltar"
 flat = true
 
 [connection signal="pressed" from="VBoxContainer/ModeGrid/Normal" to="." method="_on_normal_pressed"]

@@ -53,6 +53,8 @@ func _ready():
 	UIManager.add_button_hover_effect($Button)
 	UIManager.add_button_hover_effect($Começar)
 	UIManager.add_button_hover_effect($CriarPack)
+	if has_node("ExportPDF"):
+		UIManager.add_button_hover_effect($ExportPDF)
 	
 	# Adicionar gui_input listeners para preview
 	for pack_name in pack_panels.keys():
@@ -676,3 +678,31 @@ func _animate_create_button():
 
 func _on_criar_pack_pressed():
 	UIManager.change_scene_with_fade("res://Scenes/custom_pack_editor.tscn")
+
+func _on_export_pdf_pressed():
+	UIManager.safe_vibrate(50)
+	
+	# Obter card_data de generate_cards.gd
+	var card_data = _get_card_data()
+	
+	# Chamar exportador
+	var success = PDFExporter.export_and_open(pack_state, card_data)
+	
+	if success:
+		print("[PackSelector] PDF exportado com sucesso!")
+	else:
+		push_error("[PackSelector] Erro ao exportar PDF")
+
+func _get_card_data() -> Dictionary:
+	# Carregar dados das cartas do generate_cards.gd
+	var generate_cards_scene = load("res://Scenes/generate_cards.tscn")
+	if generate_cards_scene:
+		var temp_instance = generate_cards_scene.instantiate()
+		if temp_instance:
+			var data = temp_instance.card_data.duplicate(true)
+			temp_instance.queue_free()
+			return data
+	
+	# Se falhar, retornar dicionário vazio
+	push_error("[PackSelector] Erro ao carregar card_data de generate_cards")
+	return {}

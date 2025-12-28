@@ -1,4 +1,4 @@
-extends Control
+﻿extends Control
 
 var pack_state = {}
 var selected_mode: String = "normal"
@@ -51,9 +51,9 @@ func _update_ui_texts():
 	if title_label:
 		title_label.text = LocalizationManager.translate("tutorial_title", "COMO JOGAR")
 	if voltar_button:
-		voltar_button.text = "← " + LocalizationManager.translate("filters_back", "Voltar")
+		voltar_button.text = "" + LocalizationManager.translate("filters_back", "Voltar")
 	if jogar_button:
-		jogar_button.text = LocalizationManager.translate("filters_play", "Jogar") + " →"
+		jogar_button.text = LocalizationManager.translate("filters_play", "Jogar") + ""
 	
 	# Atualizar textos do tutorial de swipe
 	var tutorial_container = $VBoxContainer/TutorialContainer
