@@ -480,5 +480,8 @@
 	"config_mode_online": "ONLINE",
 	"config_mode_local": "LOCAL",
 	"config_order_label": "Arraste para ordenar os jogadores:",
-	"config_confirm_start": "COMEÇAR JOGO"
+	"config_order_label_local": "Ordem de jogo (quem começa primeiro):",
+	"config_confirm_start": "COMEÇAR JOGO",
+	"lobby_new_game": "Novo Jogo",
+	"lobby_absurd_subtitle_local": "Jogo local • 3 a 15 jogadores • Passe o celular!"
 }

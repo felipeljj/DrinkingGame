@@ -343,8 +343,8 @@ func _show_black_card(card_text: String):
 		confirm_selection_button.visible = false
 		judge_swipe_hint.visible = false
 	else:
-		# View do jogador
-		status_label.text = "Deslize para escolher sua carta"
+		# View do jogador - inicia o carrossel
+		status_label.text = ""
 		send_button.visible = false
 		_init_carousel()
 	
@@ -428,7 +428,7 @@ func _update_cards_visibility():
 			elif offset < -my_hand.size() / 2:
 				offset += my_hand.size()
 
-		card.visible = abs(offset) <= 2
+		card.visible = abs(offset) <= 1
 	
 	# Atrasar reordenação para sincronizar com animação
 	# Guardar índice atual para verificar se mudou durante o delay

@@ -64,10 +64,12 @@ func _ready():
 	# Nome padrão
 	name_input.text = LocalizationManager.translate("default_player_name") + str(randi() % 1000)
 	
+	# Modo LOCAL: Esconder botão de entrar em sala (não faz sentido sem rede)
+	if join_room_btn:
+		join_room_btn.visible = false
+	
 	# Hover effects
 	UIManager.add_button_hover_effect(create_room_btn)
-	UIManager.add_button_hover_effect(join_room_btn)
-	UIManager.add_button_hover_effect(connect_btn)
 	UIManager.add_button_hover_effect(start_game_btn)
 	UIManager.add_button_hover_effect(back_btn)
 
@@ -76,17 +78,13 @@ func _update_ui_texts():
 	if title_label:
 		title_label.text = LocalizationManager.translate("lobby_absurd_title", "CARTAS CONTRA OS BONS COSTUMES")
 	if subtitle_label:
-		subtitle_label.text = LocalizationManager.translate("lobby_absurd_subtitle", "Jogo multiplayer • 3 a 15 jogadores")
+		subtitle_label.text = LocalizationManager.translate("lobby_absurd_subtitle_local", "Jogo local • 3 a 15 jogadores • Passe o celular!")
 	if name_label:
 		name_label.text = LocalizationManager.translate("lobby_your_name", "Seu nome:")
 		
 	# Botões
 	if create_room_btn:
-		create_room_btn.text = LocalizationManager.translate("lobby_create_room", "Criar Sala")
-	if join_room_btn:
-		join_room_btn.text = LocalizationManager.translate("lobby_join_room", "Entrar na Sala")
-	if connect_btn:
-		connect_btn.text = LocalizationManager.translate("lobby_connect", "Conectar")
+		create_room_btn.text = LocalizationManager.translate("lobby_new_game", "Novo Jogo")
 	if start_game_btn:
 		start_game_btn.text = LocalizationManager.translate("lobby_start_game", "Iniciar Jogo")
 	
@@ -109,7 +107,7 @@ func _update_ui_texts():
 	if local_mode_btn:
 		local_mode_btn.text = LocalizationManager.translate("config_mode_local", "LOCAL")
 	if order_label:
-		order_label.text = LocalizationManager.translate("config_order_label", "Arraste para ordenar os jogadores:")
+		order_label.text = LocalizationManager.translate("config_order_label_local", "Ordem de jogo (quem começa primeiro):")
 	if confirm_start_btn:
 		confirm_start_btn.text = LocalizationManager.translate("config_confirm_start", "COMEÇAR JOGO")
 
@@ -362,7 +360,8 @@ func _enter_room_mode(is_host: bool):
 	name_input.editable = false
 	
 	if is_host:
-		room_code_panel.visible = true
+		# Modo LOCAL: não mostrar código da sala (não faz sentido sem rede)
+		room_code_panel.visible = false
 		settings_container.visible = true
 		bot_container.visible = true  # Mostrar controles de bot para o host
 		start_game_btn.visible = true
@@ -497,12 +496,15 @@ func _update_bot_count():
 func _open_config_popup():
 	config_popup.visible = true
 	
-	# Reset para modo online
-	online_mode_btn.button_pressed = true
-	local_mode_btn.button_pressed = false
-	is_local_mode = false
+	# Modo LOCAL é o único disponível agora (online desabilitado)
+	is_local_mode = true
 	
-	# Atualizar visibilidade da lista de ordem
+	# Esconder seletor de modo (só temos LOCAL)
+	var mode_container = config_panel.get_node_or_null("VBox/ModeContainer")
+	if mode_container:
+		mode_container.visible = false
+	
+	# Sempre mostrar lista de ordenação no modo local
 	_update_order_list_visibility()
 	
 	# Popular lista de jogadores
@@ -535,8 +537,9 @@ func _on_local_mode_pressed():
 	UIManager.safe_vibrate(30)
 
 func _update_order_list_visibility():
-	order_label.visible = is_local_mode
-	order_list_scroll.visible = is_local_mode
+	# Modo LOCAL é o único, sempre mostrar ordenação
+	order_label.visible = true
+	order_list_scroll.visible = true
 
 func _populate_order_list():
 	# Limpar lista

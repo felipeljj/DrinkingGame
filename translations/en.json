@@ -480,5 +480,8 @@
 	"config_mode_online": "ONLINE",
 	"config_mode_local": "LOCAL",
 	"config_order_label": "Drag to order players:",
-	"config_confirm_start": "START GAME"
+	"config_order_label_local": "Play order (who goes first):",
+	"config_confirm_start": "START GAME",
+	"lobby_new_game": "New Game",
+	"lobby_absurd_subtitle_local": "Local game • 3 to 15 players • Pass the phone!"
 }

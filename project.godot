@@ -22,6 +22,7 @@ ParticlesManager="*res://Scripts/particles_manager.gd"
 LocalizationManager="*res://Scripts/localization_manager.gd"
 AchievementsManager="*res://Scripts/achievements_manager.gd"
 MultiplayerManager="*res://Scripts/multiplayer_manager.gd"
+NewsManager="*res://Scripts/news_manager.gd"
 
 [display]
 
